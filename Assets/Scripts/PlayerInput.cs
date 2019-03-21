@@ -21,7 +21,8 @@ public class PlayerInput : MonoBehaviour
     public string bButton = "C1B";
     public string xButton = "C1X";
     public string yButton = "C1Y";
-    public int sensitivity = 0;
+    public float runSpeed = 0;
+    public float sensitivityCamera = 0;
     public GameObject camera;
 
     // Privates
@@ -44,14 +45,14 @@ public class PlayerInput : MonoBehaviour
             Vector3 direction = Vector3.zero;
             direction.x = Input.GetAxis(moveX);
             direction.z = Input.GetAxis(moveY);
-            playerTransform.position = playerTransform.position + (playerTransform.forward * direction.z + playerTransform.right * direction.x) *(Time.deltaTime * 50);
+            playerTransform.position = playerTransform.position + (playerTransform.forward * direction.z + playerTransform.right * direction.x) *(Time.deltaTime * runSpeed);
 
         }
         // If the right stick is set to respond
         if (rightStick)
         {
-            playerTransform.Rotate(new Vector3(0, Input.GetAxis(horizontal), 0) * sensitivity);
-            camera.transform.Rotate(new Vector3(Input.GetAxis(vertical), 0, 0) * sensitivity);
+            playerTransform.Rotate(new Vector3(0, Input.GetAxis(horizontal), 0) * sensitivityCamera);
+            camera.transform.Rotate(new Vector3(Input.GetAxis(vertical), 0, 0) * sensitivityCamera);
         }
 
         // If a button is pressed

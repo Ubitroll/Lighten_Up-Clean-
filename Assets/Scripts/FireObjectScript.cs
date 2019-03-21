@@ -112,7 +112,7 @@ public class FireObjectScript : MonoBehaviour
 		}
 		else 
 		{
-			candleUI.text = "Press E to light up the " + closestObject.name;
+			candleUI.text = "Press B to light up the " + closestObject.name;
 			fireBar.enabled = true;
 			fireBar.transform.GetChild (0).gameObject.SetActive (true);
 			fireBar.transform.GetChild(0).transform.localScale = new Vector3 (amountFilled, 1, 1);

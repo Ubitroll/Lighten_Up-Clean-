@@ -255,10 +255,11 @@ GameObject:
   - component: {fileID: 3110752928695330824}
   - component: {fileID: 3110752928695330827}
   - component: {fileID: 3110752928695330826}
+  - component: {fileID: 2176200102058184008}
   - component: {fileID: 3110752928695330825}
   - component: {fileID: 3110752928695330830}
   m_Layer: 0
-  m_Name: candle 1
+  m_Name: CandleNew
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -329,8 +330,24 @@ MonoBehaviour:
   bButton: C2B
   xButton: C2X
   yButton: C2Y
-  sensitivity: 10
+  runSpeed: 0
+  sensitivityCamera: 0
   camera: {fileID: 3110752929277884304}
+--- !u!114 &2176200102058184008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3110752928695330869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a3637b01a8f5104f89539d04107b908, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flamableObjects: []
+  candleUI: {fileID: 0}
+  fireBar: {fileID: 0}
 --- !u!54 &3110752928695330825
 Rigidbody:
   m_ObjectHideFlags: 0
