@@ -20,7 +20,7 @@ public class ThrowObjectScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float dist = Vector3.Distance(gameObject.transform.position, player.position);
+        float dist = Vector3.Distance(gameObject.transform.position, player.transform.position);
 
         //Debug.Log("Distance to object " + transform.name + " is " + dist);
 

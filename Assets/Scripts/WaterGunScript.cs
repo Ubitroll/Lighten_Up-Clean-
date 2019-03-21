@@ -53,6 +53,7 @@ public class WaterGunScript : MonoBehaviour
 
 	void ShootWater()
 	{
+        Debug.Log("Shoot");
 		if (waterAmmoClip > 0) 
 		{
 			//Debug.Log ("Shooting water!");
@@ -103,13 +104,13 @@ public class WaterGunScript : MonoBehaviour
 		// checking if the gun is activated by player
 		if (this.gameObject.activeSelf) 
 		{
-			if (Input.GetButton ("Fire1") && isAbleToShoot && !(isReloading)) 
+			if (Input.GetButtonDown("C1B") && isAbleToShoot && !(isReloading)) 
 			{
 				StartCoroutine (DelayShooting ());
 				ShootWater ();
 			}
 
-			if (Input.GetKey (KeyCode.R) && !(isReloading))
+			if (Input.GetButtonDown("C1Y") && !(isReloading))
 				Reload ();
 
 			// displaying UI text with ammunition

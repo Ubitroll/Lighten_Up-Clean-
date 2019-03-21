@@ -201,7 +201,7 @@ public class ExtinguishObject : MonoBehaviour
 		if (waterWeapons[1].gameObject.activeSelf) 
 		{
 
-			if (Input.GetButton ("Fire1") && isAbleToThrow) 
+			if (Input.GetButtonDown("C1B") && isAbleToThrow) 
 			{
 				StartCoroutine (DelayThrowing ());
 				ThrowWaterBomb ();
