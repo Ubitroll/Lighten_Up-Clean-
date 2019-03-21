@@ -11,8 +11,8 @@ public class CharacterSwapper : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        candle.SetActive(true);
-        human.SetActive(false);
+       // candle.SetActive(true);
+       // human.SetActive(false);
     }
 
     // Update is called once per frame
