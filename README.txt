@@ -7,5 +7,13 @@
 
 - Added house health bar and attached a script to empty game object "HouseHealthObject"
 - Added ThrowObjectScript and Rigidbody to objects that are small - currently to armchair, coffeetable, Chair, Chair (1), Chair (2), Chair (3), TV
-
-
+- Changed input buttons to support controllers. 
+	HUMAN:  RB and LB - switch through weapons, 
+		B - action (pick up objects, throw objects, shoot)
+		X - refill weapon or leave picked up object 
+		Y - reload gun
+- The player can only pick up an item if he has no weapon selected
+- Added tags Human and Candle for the players
+- Disabled candle movement when it's burning objects quicker
+- Animation types changed from Generic to Legacy
+- Added animations

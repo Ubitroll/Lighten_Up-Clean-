@@ -11,6 +11,9 @@ public class PlayerInput : MonoBehaviour
     public bool leftStick = true;
     public bool rightStick = true;
     public bool aPressed, bPressed, xPressed, yPressed = false;
+    public bool walking = false;
+    public bool standing = false;
+    public bool running = false;
     // Strings
     // Set to public so they can be assigned in the editor to the correct input
     public string moveX = "C1moveX";
@@ -28,11 +31,14 @@ public class PlayerInput : MonoBehaviour
     // Privates
     private Vector3 startPos;
     private Transform playerTransform;
+    private Animation anim;
 
     // Start is called before the first frame update
     void Start()
     {
         playerTransform = transform;
+        anim = gameObject.GetComponent<Animation>();
+        
     }
 
     // Update is called once per frame
@@ -45,9 +51,16 @@ public class PlayerInput : MonoBehaviour
             Vector3 direction = Vector3.zero;
             direction.x = Input.GetAxis(moveX);
             direction.z = Input.GetAxis(moveY);
-            playerTransform.position = playerTransform.position + (playerTransform.forward * direction.z + playerTransform.right * direction.x) *(Time.deltaTime * runSpeed);
 
+            // if the player is moving
+            if (direction.x != 0 && direction.z != 0)
+                walking = true;
+            else
+                walking = false;
+
+            playerTransform.position = playerTransform.position + (playerTransform.forward * direction.z + playerTransform.right * direction.x) * (Time.deltaTime * runSpeed);
         }
+
         // If the right stick is set to respond
         if (rightStick)
         {
@@ -94,5 +107,38 @@ public class PlayerInput : MonoBehaviour
         {
             yPressed = false;
         }
+
+        // if the player isn't walking or running
+        if (!(walking) && !(running))
+            standing = true;
+
+        // switching boolean values
+        if(walking)
+        {
+            standing = false;
+            running = false;
+        } else if (standing)
+               {
+                    walking = false;
+                    running = false;
+                } else if(running)
+                        {
+                            walking = false;
+                            standing = false;
+                        }
+
+        // play the approporiate animation
+        if (walking)
+        {
+            anim.Play("walk");
+        }
+        else if (standing)
+              {
+                  anim.Play("t-pose");
+               }
+               else if (running)
+                    {
+                        anim.Play("run");
+                    }
     }
 }

@@ -53,7 +53,7 @@ public class WaterGunScript : MonoBehaviour
 
 	void ShootWater()
 	{
-        Debug.Log("Shoot");
+        //Debug.Log("Shoot");
 		if (waterAmmoClip > 0) 
 		{
 			//Debug.Log ("Shooting water!");
@@ -65,14 +65,14 @@ public class WaterGunScript : MonoBehaviour
 			if (Physics.Raycast (this.transform.position, transform.TransformDirection (Vector3.forward), out hit, waterRange)) 
 			{	
 				// used to change variable that shows up UI
-				ExtinguishObject extinguishObject = GameObject.Find ("Human").GetComponent<ExtinguishObject> ();
+				ExtinguishObject extinguishObject = GameObject.FindGameObjectWithTag("Human").GetComponent<ExtinguishObject> ();
 
 				// if the player shot flamable object that is on fire
 				if (hit.collider.gameObject.tag == "Flamable") 
 				{
 					ItemScript itemScript = hit.collider.gameObject.GetComponent<ItemScript> ();	
 				
-					Debug.Log ("Raycasted flamable object: " + hit.collider.name);
+					//Debug.Log ("Raycasted flamable object: " + hit.collider.name);
 
 					// used to show up UI elements, when the player points at fired object
 					if (itemScript.onFire && extinguishObject != null) 
@@ -85,7 +85,7 @@ public class WaterGunScript : MonoBehaviour
 						// passing the amount of water to itemscript
 						itemScript.amountOfWater += waterAmount;
 
-						Debug.Log ("Amount Filled " + itemScript.amountOfWater);
+						//Debug.Log ("Amount Filled " + itemScript.amountOfWater);
 					} 
 					else 
 					{

@@ -8,6 +8,8 @@ TagManager:
   - Burnt
   - WaterSupply
   - Fire
+  - Human
+  - Candle
   layers:
   - Default
   - TransparentFX

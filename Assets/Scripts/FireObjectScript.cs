@@ -43,7 +43,7 @@ public class FireObjectScript : MonoBehaviour
 
 	void OnCollisionEnter(Collision collision)
 	{
-		Debug.Log ("I'm walking on the " + collision.gameObject.name + " object!!!!");
+		//Debug.Log ("I'm walking on the " + collision.gameObject.name + " object!!!!");
 		if(collision.gameObject.tag == "Flamable")
 			StartFire ();
 		resetFireTime = false;
@@ -51,7 +51,7 @@ public class FireObjectScript : MonoBehaviour
 
 	void OnCollisionExit(Collision collision)
 	{
-		Debug.Log ("I'm no longer walking on the " + collision.gameObject.name + "object!!!!");
+		//Debug.Log ("I'm no longer walking on the " + collision.gameObject.name + "object!!!!");
 		if(collision.gameObject.tag == "Flamable")
 			resetFireTime = true;
 	}
@@ -63,24 +63,21 @@ public class FireObjectScript : MonoBehaviour
 
 		// getting the closest object's script 
 		ItemScript itemScript = closestObject.GetComponent<ItemScript> ();
-					
-		// returns true while the button is held down
-		if (Input.GetKey (KeyCode.E)) {
-			// when the player is pressing the button he cannot move and the timeToFireBonus is doubled
-			timeToFireBoost = 2.0f;
+        PlayerInput candleInput = GameObject.FindGameObjectWithTag("Candle").GetComponent<PlayerInput>();
 
-			/* DISABLE CANDLE CONTROL HERE!
-			 * 
-			 * 
-			 * 
-			 *
-		} else {
-			/* if (candle control disabled)
-			 * 		enable candle control
-			 * 
-			 * 
-			 */
-		}
+        // returns true while the button is held down
+        if (Input.GetButtonDown("C2B"))
+        {
+            // when the player is pressing the button he cannot move and the timeToFireBonus is doubled
+            timeToFireBoost = 2.0f;
+
+            candleInput.runSpeed = 0;
+		} 
+        else 
+        {
+            if (candleInput.runSpeed == 0)
+                candleInput.runSpeed = 15;
+	    }
 
 		// checking if the timer should be reset
 		if (!(resetFireTime))

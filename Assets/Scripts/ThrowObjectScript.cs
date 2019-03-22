@@ -24,8 +24,10 @@ public class ThrowObjectScript : MonoBehaviour
 
         //Debug.Log("Distance to object " + transform.name + " is " + dist);
 
+        ExtinguishObject extObjScript = player.gameObject.GetComponent<ExtinguishObject>();
+
         // if the player is close enough to the object
-        if(dist <= 26.0f)
+        if(dist <= 26.0f && extObjScript.currentWeapon == 0)
         {
             ableToPickObject = true;
             eraseUI = false;
@@ -53,7 +55,7 @@ public class ThrowObjectScript : MonoBehaviour
         {
             transform.position = objectHolder.transform.position;
 
-            humanUI.text = "Press X button to throw the object or Y to leave it.";
+            humanUI.text = "Press B button to throw the object or Y to leave it.";
 
             // if object collides with something it drops out of player's hands
             if(objectCollided)
@@ -64,7 +66,7 @@ public class ThrowObjectScript : MonoBehaviour
             }
 
             // when the player presses X button
-            if(Input.GetButtonDown("C1X"))
+            if(Input.GetButtonDown("C1B"))
             {
                 transform.parent = null;
                 objectCarried = false;
@@ -89,7 +91,7 @@ public class ThrowObjectScript : MonoBehaviour
         {
             //Debug.Log("I " + gameObject.name + " collided with " + collision.gameObject.name);
             // in case the collision occurs with the human
-            if (collision.collider.name != "Human")
+            if (collision.collider.tag != "Human")
             {
                 objectCollided = true;
             }

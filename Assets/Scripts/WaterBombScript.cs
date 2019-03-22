@@ -42,7 +42,7 @@ public class WaterBombScript : MonoBehaviour
                     // adding steam particle effect
                     steamEffect = Instantiate(Resources.Load("Prefabs/Steam"), itemScript.transform.position, Quaternion.identity) as GameObject;
 
-                    Debug.Log ("I'm a water bomb and I exploded on " + col.gameObject.name + " object, distance from the object is " + distance + ", amountfilled = " + itemScript.amountOfWater);
+                    //Debug.Log ("I'm a water bomb and I exploded on " + col.gameObject.name + " object, distance from the object is " + distance + ", amountfilled = " + itemScript.amountOfWater);
 				} // end of !(itemScript.onFire)
 			}// end of (tag == "Flamable")
 		}// end of foreach

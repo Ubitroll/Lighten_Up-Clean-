@@ -7,7 +7,7 @@ using UnityEngine.UI;
 // and to refill them. 
 public class ExtinguishObject : MonoBehaviour
 {
-	int currentWeapon = 0; // 0 = no weapon, 1 = "Water-Gun", 2 = "Water-Bomb", 3 = "Water-Mug"
+	public int currentWeapon = 0; // 0 = no weapon, 1 = "Water-Gun", 2 = "Water-Bomb", 3 = "Water-Mug"
 	public List<GameObject> waterWeapons; // used array to make it easier in future to add more weapons.
 	public GameObject waterGun;
 	public GameObject waterBomb;
@@ -29,7 +29,8 @@ public class ExtinguishObject : MonoBehaviour
 
 	private void FillUpWater(GameObject weapon)
 	{
-		if(Input.GetKey(KeyCode.E))
+        // When the player presses X button
+		if(Input.GetButtonDown("C1X"))
 		{
 			Debug.Log ("Filling up current weapon with water");
 
@@ -96,20 +97,21 @@ public class ExtinguishObject : MonoBehaviour
 		if (collider.gameObject.tag == "WaterSupply") 
 		{
 			nearWaterTrigger = true;
-			humanUI.text = "Hold E to fill up!";
+			humanUI.text = "Hold X to fill up!";
 		}
-		Debug.Log ("Human entered trigger " + collider.gameObject.name + " object.");
-	}
+        // Debug purposes
+        // Debug.Log ("Human entered trigger " + collider.gameObject.name + " object.");
+    }
 
-	void OnTriggerExit(Collider collider)
+    void OnTriggerExit(Collider collider)
 	{
 		if (collider.gameObject.tag == "WaterSupply")
 		{
 			nearWaterTrigger = false;
 			humanUI.text = "";
 		}
-
-		Debug.Log ("Human exited trigger " + collider.gameObject.name + " object.");
+        // Debug purposes
+		// Debug.Log ("Human exited trigger " + collider.gameObject.name + " object.");
 	}
 		
 	IEnumerator DelayThrowing()
@@ -138,6 +140,8 @@ public class ExtinguishObject : MonoBehaviour
 		// assigning gameobjects to waterWeapons array
 		waterWeapons.Add(waterGun);
 		waterWeapons.Add(waterBomb);
+
+        currentWeapon = 0;
 	}
 
     // Update is called once per frame
@@ -151,56 +155,56 @@ public class ExtinguishObject : MonoBehaviour
 				FillUpWater (waterWeapons [currentWeapon - 1]);
 		} 
 
+        // getting the next weapon
+        if(Input.GetButtonDown("C1RB") && currentWeapon < waterWeapons.Count)
+        {
+            ++currentWeapon;
+            for (int i = 0; i < waterWeapons.Count; i++)
+            {
+                if (i == currentWeapon - 1)
+                    waterWeapons[i].SetActive(true);
+                else
+                    waterWeapons[i].SetActive(false);
+            }
 
-		// stores the key player presses
-		string pressedKey = Input.inputString;
+            //Debug.Log("Selected " + waterWeapons[currentWeapon - 1]);
+        }
 
-		// checking which weapon should be displayed
-		switch (pressedKey) 
-		{
-		case "0":
-				currentWeapon = 0;
-					// disactivating all weapons
-				for (int i = 0; i < waterWeapons.Count; i++) 
-				{
-					waterWeapons [i].SetActive (false);
-				}
+        // getting the previous weapon
+        if (Input.GetButtonDown("C1LB") && currentWeapon > 0)
+        {
+            --currentWeapon;
 
-				ammoText.text = "";
-				//Debug.Log ("No weapons selected!");
-				break;
-			case "1":
-				currentWeapon = 1;
-				// making current weapon gameobject active and disactivating others
-				for (int i = 0; i < waterWeapons.Count; i++) 
-				{
-					if (i == currentWeapon - 1)
-						waterWeapons [i].SetActive (true);
-					else
-						waterWeapons [i].SetActive (false);
-				}
-				//Debug.Log ("Selected water gun!");
-				break;
-			case "2":
-				currentWeapon = 2;
-				// making current weapon gameobject active and disactivating others
-				for (int i = 0; i < waterWeapons.Count; i++) 
-				{
-					if (i == currentWeapon - 1)
-						waterWeapons [i].SetActive (true);
-					else
-						waterWeapons [i].SetActive (false);
-				}
-				//Debug.Log ("Selected water bomb!");
-				break;
-			default:
-				break;
-		}
+            if (currentWeapon == 0)
+            {
+                // disactivating all weapons
+                for (int i = 0; i < waterWeapons.Count; i++)
+                {
+                    waterWeapons[i].SetActive(false);
+
+                    ammoText.text = "";
+                    //Debug.Log ("No weapons selected!");
+                }
+            }
+            else
+            {
+                for (int i = 0; i < waterWeapons.Count; i++)
+                {
+                    if (i == currentWeapon - 1)
+                        waterWeapons[i].SetActive(true);
+                    else
+                        waterWeapons[i].SetActive(false);
+                }
+
+                //Debug.Log("Selected " + waterWeapons[currentWeapon - 1]);
+            } // end of else
+        } // end of pressed C1LB
+
+        //Debug.Log("Weapon: " + (currentWeapon));
 
 		// throwing needs to be in this script rather than in the WaterBombScript
 		if (waterWeapons[1].gameObject.activeSelf) 
 		{
-
 			if (Input.GetButtonDown("C1B") && isAbleToThrow) 
 			{
 				StartCoroutine (DelayThrowing ());
