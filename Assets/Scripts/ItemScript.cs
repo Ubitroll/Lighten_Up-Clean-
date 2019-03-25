@@ -7,7 +7,8 @@ using UnityEngine;
 // water was already poured over it, instantiates fire particle effect and changes item's colour to black while on fire.
 public class ItemScript : MonoBehaviour
 {
-	public float health = 100.0f; // should be 100
+    public ParticleSystem fireEffect; // fire particle effect
+    public float health = 100.0f; // should be 100
 	public float timeToFire = 10.0f; // differs on items, time in seconds the candle needs to set the item on fire
 	public float timePuttingFire = 0.0f; // amount of time the object is putting on another object nearby
 	public float waterAmountNeeded = 20.0f; // differs on items, amount of water the human needs to use to extinguish the fire
@@ -19,9 +20,9 @@ public class ItemScript : MonoBehaviour
 	public float amountOfWater = 0.0f;
 
 	private GameObject[] flamableObjects;
-	private GameObject fireEffect; // fire particle effect
-	private bool fireEffectOn = false; // used to check if the fire particle effect was already istantiated
-	private Color blackColor = Color.black; // changes the color of the object 
+	private bool fireEffectOn = false; // if the fire effect is already on or not
+    private bool fireWasInstantiated = false; // used to check if the fire particle effect was already istantia
+    private Color blackColor = Color.black; // changes the color of the object 
 	private Renderer rend;
 	private Color startColor; // this is the material the object has at the start
 
@@ -76,19 +77,26 @@ public class ItemScript : MonoBehaviour
 		// replacing the tag so that the candle's function won't find it as a flamable object
 		this.transform.gameObject.tag = "Burnt";
 
-		// destroying the fire particle effect
-		if (GameObject.Find("Fire(Clone)"))
-			Destroy(fireEffect);
+        // removing the fire particle effect
+        fireEffect.gameObject.SetActive(false);
 	}
 
 	void ItemOnFire()
 	{
 		if (!(fireEffectOn)) 
 		{
-			// needs to be in Resources folder
-			fireEffect = Instantiate (Resources.Load("Prefabs/Fire"), this.transform.position, Quaternion.identity) as GameObject;
-			//fireEffect.transform.localScale = this.gameObject.transform.localScale;
-		}
+            fireEffectOn = true;
+            
+            // if the fire was never instantiated before we instantiate it, otherwise just enabling it
+            if (fireWasInstantiated == false)
+            {
+                fireEffect = Instantiate(fireEffect, this.transform.position, Quaternion.identity) as ParticleSystem;
+                var shape = fireEffect.shape;
+                shape.meshRenderer = gameObject.GetComponent<MeshRenderer>();
+            }
+            else
+                fireEffect.gameObject.SetActive(true);
+        }
 
 		this.health -= this.durability * Time.deltaTime;
 
@@ -121,8 +129,8 @@ public class ItemScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		// when the item is on fire
-		if (this.onFire) 
+        // when the item is on fire
+            if (this.onFire) 
 		{
 			ItemOnFire ();
 			FireNearbyItems ();
@@ -130,9 +138,8 @@ public class ItemScript : MonoBehaviour
 		} else
 		{
 			fireEffectOn = false;
-			if (GameObject.Find("Fire(Clone)") != null)
-				Destroy(fireEffect);
-		}
+            fireEffect.gameObject.SetActive(false);
+        }
 
 		// when the item's health reaches 0
 		if (this.health <= 0) 

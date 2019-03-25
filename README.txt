@@ -17,3 +17,7 @@
 - Disabled candle movement when it's burning objects quicker
 - Animation types changed from Generic to Legacy
 - Added animations
+
+- Added fire particle effect to the candle
+- Updated fire particle effect - now it will cover the whole object
+- Due to some kind of 'weird' issues with the particle effect it MUST be assigned in the inspector!
