@@ -20,4 +20,7 @@
 
 - Added fire particle effect to the candle
 - Updated fire particle effect - now it will cover the whole object
-- Due to some kind of 'weird' issues with the particle effect it MUST be assigned in the inspector!
+- Due to some kind of 'weird' issues with the fire particle effect it MUST be assigned in the inspector!
+- The steam particle effect needs to be assigned in the inspector as well
+- Major fixes with raycasting
+- Extinguish and fire bar are now treated as game objects and not images

@@ -10,6 +10,7 @@ TagManager:
   - Fire
   - Human
   - Candle
+  - HumanCamera
   layers:
   - Default
   - TransparentFX
