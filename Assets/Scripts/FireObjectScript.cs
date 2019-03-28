@@ -12,7 +12,7 @@ public class FireObjectScript : MonoBehaviour
 	float distanceDifference = Mathf.Infinity; // distance difference between the candle and nearest flamable object's face
 	float timePuttingFire = 0.0f; // how long the candle was lighting up an object
 	public Text candleUI; // UI text to light up and object
-	public Image fireBar; // fire bar displaying how much is left to fire up the object
+	public GameObject fireBar; // fire bar displaying how much is left to fire up the object
 	private float amountFilled = 0.0f; // amount of bar to be filled (how much the candle 'fired' the object already)
 	private bool resetFireTime = false; // resets the time candle was firing the object - used when it is no longer in collision with that object
 
@@ -104,14 +104,14 @@ public class FireObjectScript : MonoBehaviour
 		{
 			// Text and firebar disabled
 			candleUI.text = "This object is on fire!";
-			fireBar.enabled = false;
+            fireBar.SetActive(false);
 			fireBar.transform.GetChild (0).gameObject.SetActive (false);
 		}
 		else 
 		{
 			candleUI.text = "Press B to light up the " + closestObject.name;
-			fireBar.enabled = true;
-			fireBar.transform.GetChild (0).gameObject.SetActive (true);
+            fireBar.SetActive(true);
+            fireBar.transform.GetChild (0).gameObject.SetActive (true);
 			fireBar.transform.GetChild(0).transform.localScale = new Vector3 (amountFilled, 1, 1);
 		}
 	}
@@ -122,9 +122,9 @@ public class FireObjectScript : MonoBehaviour
     {
 		if (flamableObjects == null)
 			flamableObjects = GameObject.FindGameObjectsWithTag ("Flamable");
-    
-		fireBar.enabled = false;
-		fireBar.transform.GetChild (0).gameObject.SetActive (false);
+
+        fireBar.SetActive(false);
+        fireBar.transform.GetChild (0).gameObject.SetActive (false);
 	}
 
     // Update is called once per frame
@@ -146,8 +146,8 @@ public class FireObjectScript : MonoBehaviour
 		} 
 		else
 		{
-			fireBar.enabled = false;
-			fireBar.transform.GetChild (0).gameObject.SetActive (false);
+            fireBar.SetActive(false);
+            fireBar.transform.GetChild (0).gameObject.SetActive (false);
 			candleUI.text = "";
 		}
 
