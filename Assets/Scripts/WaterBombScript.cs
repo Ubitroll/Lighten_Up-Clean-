@@ -13,7 +13,7 @@ public class WaterBombScript : MonoBehaviour
 	public Text ammoText;
 
 	private float timeAlive = 0.0f;
-	private ParticleSystem steamEffect;
+	private GameObject steamEffect;
 
 	void OnCollisionEnter(Collision collision)
 	{
@@ -40,13 +40,11 @@ public class WaterBombScript : MonoBehaviour
 					itemScript.amountOfWater += (waterAmount * (waterRate / 10));
 
                     // adding steam particle effect
-                    //steamEffect = Instantiate(Resources.Load("Prefabs/Steam"), itemScript.transform.position, Quaternion.identity) as GameObject;
+                    steamEffect = Instantiate(Resources.Load("Prefabs/Steam"), itemScript.transform.position, Quaternion.identity) as GameObject;
 
-                    itemScript.AddSteamEffect();
-                    
                     //Debug.Log ("I'm a water bomb and I exploded on " + col.gameObject.name + " object, distance from the object is " + distance + ", amountfilled = " + itemScript.amountOfWater);
-                } // end of !(itemScript.onFire)
-            }// end of (tag == "Flamable")
+				} // end of !(itemScript.onFire)
+			}// end of (tag == "Flamable")
 		}// end of foreach
 
 		// had issues with object being destroyed at the start because it collided with the human

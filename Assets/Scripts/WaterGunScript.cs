@@ -10,7 +10,7 @@ public class WaterGunScript : MonoBehaviour
 	public int waterAmmoClip = 10; // how much water one clip stores
 	public int waterAmmoAll = 20; // how much all water there is
 	public float waterAmount = 5.0f; // how much water there is in one 'shot' that can be applied on ONE fired objects
-	public float waterRange = 20.0f; // how far the water can reach 
+	public float waterRange = 10.0f; // how far the water can reach 
 
 	public Text ammoText; // UI text containing amount of ammunition
 	private bool isAbleToShoot = true; // used in coroutine
@@ -56,41 +56,44 @@ public class WaterGunScript : MonoBehaviour
         //Debug.Log("Shoot");
 		if (waterAmmoClip > 0) 
 		{
-			Debug.Log ("Shooting water!");
+			//Debug.Log ("Shooting water!");
 			waterAmmoClip--;
 
 			RaycastHit hit = new RaycastHit ();
 
-            // getting camera transform for the raycast
-            Transform camera = GameObject.FindGameObjectWithTag("HumanCamera").transform;
-
 			// raycast
-			if (Physics.Raycast (camera.position, camera.TransformDirection (Vector3.forward), out hit, waterRange)) 
-			{
+			if (Physics.Raycast (this.transform.position, transform.TransformDirection (Vector3.forward), out hit, waterRange)) 
+			{	
+				// used to change variable that shows up UI
+				ExtinguishObject extinguishObject = GameObject.FindGameObjectWithTag("Human").GetComponent<ExtinguishObject> ();
 
-                Debug.Log("Raycasted object: " + hit.collider.name);
-                // if the player shot flamable object that is on fire
-                if (hit.collider.gameObject.tag == "Flamable") 
+				// if the player shot flamable object that is on fire
+				if (hit.collider.gameObject.tag == "Flamable") 
 				{
 					ItemScript itemScript = hit.collider.gameObject.GetComponent<ItemScript> ();	
 				
-					Debug.Log ("Raycasted flamable object: " + hit.collider.name);
+					//Debug.Log ("Raycasted flamable object: " + hit.collider.name);
 
 					// used to show up UI elements, when the player points at fired object
-					if (itemScript.onFire) 
+					if (itemScript.onFire && extinguishObject != null) 
 					{
                         // adding steam effect
-                        //steamEffect = Instantiate(Resources.Load("Prefabs/Steam"), itemScript.transform.position, Quaternion.identity) as GameObject;
+                        steamEffect = Instantiate(Resources.Load("Prefabs/Steam"), itemScript.transform.position, Quaternion.identity) as GameObject;
 
-                        itemScript.AddSteamEffect();
+                        extinguishObject.raycastedFire = true;
 
 						// passing the amount of water to itemscript
 						itemScript.amountOfWater += waterAmount;
 
-						Debug.Log ("Amount Filled " + itemScript.amountOfWater);
+						//Debug.Log ("Amount Filled " + itemScript.amountOfWater);
 					} 
+					else 
+					{
+						extinguishObject.raycastedFire = false;
+					}
 
-				}// end of hit.tag = "Flamable"
+				} else if (extinguishObject != null) // checking first if the object was found
+					extinguishObject.raycastedFire = false;
 			}// end of Physics.Raycast
 		}// end of waterAmmoClip > 0
 	}
