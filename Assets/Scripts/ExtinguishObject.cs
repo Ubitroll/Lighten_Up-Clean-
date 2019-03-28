@@ -13,12 +13,13 @@ public class ExtinguishObject : MonoBehaviour
 	public GameObject waterBomb;
 	float distanceToWater = Mathf.Infinity; // distance to water supply
 	float distanceToFire = Mathf.Infinity; // distance to flamable object's point he is raycasting
-	public Image extinguishBar; // fire bar displaying how much is left to fire up the object
+	public GameObject extinguishBar; // extinguish bar displaying how much is left to put off the fire from the object
 	public Image humanCrosshair; // human crosshair
 	public float throwForce = 30.0f; // amount of force that player throws the Water-Bomb
 	public bool raycastedFire = false; // needed to use this to make the extinguish bar properly work
 	public Text humanUI; // UI text
 	public Text ammoText; // UT ammunition text
+    public GameObject playerCamera;
 
 	private float amountFilled = 0.0f; // amount of bar to be filled (how much the human extinguished the object already)
 	private Vector3 currentHumanPos;
@@ -127,9 +128,13 @@ public class ExtinguishObject : MonoBehaviour
 
 		if (waterBombScript.numberOfBombs > 0) 
 		{
-			waterBombScript.numberOfBombs--;
-			GameObject bomb = Instantiate (Resources.Load ("Prefabs/Water-Bomb"), waterBomb.transform.position, Quaternion.identity) as GameObject;
-			bomb.GetComponent<Rigidbody> ().AddForce (transform.forward * throwForce, ForceMode.Impulse);
+            waterBombScript.numberOfBombs--;
+            // bomb is instantiated a bit forward from the water-bomb the player is holding
+            GameObject bomb = Instantiate (Resources.Load ("Prefabs/Water-Bomb"), waterBomb.transform.position + new Vector3(0f, 0, 1.5f) , Quaternion.identity) as GameObject;
+
+            // getting human's camera and adding force from it's looking point
+            GameObject camera = GameObject.FindGameObjectWithTag("HumanCamera").gameObject;
+            bomb.GetComponent<Rigidbody> ().AddForce (camera.transform.forward * throwForce, ForceMode.Impulse);
 		}
 	}
 
@@ -221,40 +226,44 @@ public class ExtinguishObject : MonoBehaviour
 		RaycastHit hit = new RaycastHit ();
 
 		// raycast
-		if (Physics.Raycast (this.transform.position, transform.TransformDirection (Vector3.forward), out hit, Mathf.Infinity)) 
+		if (Physics.Raycast (playerCamera.transform.position, playerCamera.transform.TransformDirection (Vector3.forward), out hit, Mathf.Infinity)) 
 		{
-			if (hit.collider.gameObject.tag == "Flamable") 
-			{
-				ItemScript itemScript = hit.collider.gameObject.GetComponent<ItemScript> ();
+            if (hit.collider.gameObject.tag == "Flamable")
+            {
+                ItemScript itemScript = hit.collider.gameObject.GetComponent<ItemScript>();
 
-				if (itemScript.onFire)
-					raycastedFire = true;
-				else
-					raycastedFire = false;
-			}
-		}
+                if (itemScript.onFire)
+                {
+                    raycastedFire = true;
+                    // getting the % of water poured on the object and what's needed
+                    amountFilled = itemScript.amountOfWater / itemScript.waterAmountNeeded;
+                }
+                else
+                    raycastedFire = false;
+            }
+            else
+                raycastedFire = false;
+        }
 
-		// UI elements showing up
-		if (raycastedFire) 
-		{
-			ItemScript itemScript = hit.collider.gameObject.GetComponent<ItemScript> ();
-			if(itemScript != null)
-				amountFilled = itemScript.amountOfWater / itemScript.waterAmountNeeded;
+        // UI elements showing up
+        if (raycastedFire)
+        {
+            // to make sure the blue colour doesn't exeed the width of the extinguish bar
+            if (amountFilled > 1)
+                amountFilled = 1;
 
-			// to make sure the blue colour doesn't exeed the width of the extinguish bar
-			if (amountFilled > 1)
-				amountFilled = 1;
-			
-			// Showing text and extinguish bar
-			extinguishBar.enabled = true;
-			extinguishBar.transform.GetChild (0).gameObject.SetActive (true);
-			extinguishBar.transform.GetChild (0).transform.localScale = new Vector3 (amountFilled, 1, 1);
-		}
-		else
-		{
-			amountFilled = 0;
-			extinguishBar.enabled = false;
-			extinguishBar.transform.GetChild (0).gameObject.SetActive (false);
-		}
+            Debug.Log("Raycasted fire");
+
+            // Showing text and extinguish bar
+            extinguishBar.SetActive(true);
+            extinguishBar.transform.GetChild(0).gameObject.SetActive(true);
+            extinguishBar.transform.GetChild(0).transform.localScale = new Vector3(amountFilled, 1, 1);
+        }
+        else
+        {
+            amountFilled = 0;
+            extinguishBar.SetActive(false);
+            extinguishBar.transform.GetChild(0).gameObject.SetActive(false);
+        }
     }
 }

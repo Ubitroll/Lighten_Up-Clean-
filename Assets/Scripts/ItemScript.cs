@@ -8,6 +8,7 @@ using UnityEngine;
 public class ItemScript : MonoBehaviour
 {
     public ParticleSystem fireEffect; // fire particle effect
+    public ParticleSystem steamEffect; // steam particle effect
     public float health = 100.0f; // should be 100
 	public float timeToFire = 10.0f; // differs on items, time in seconds the candle needs to set the item on fire
 	public float timePuttingFire = 0.0f; // amount of time the object is putting on another object nearby
@@ -115,6 +116,13 @@ public class ItemScript : MonoBehaviour
 		// Debug purposes
 		//Debug.Log("Item: " + this.name + " health: " + this.health);
 	}
+
+    public void AddSteamEffect()
+    {
+        steamEffect = Instantiate(steamEffect, this.transform.position, Quaternion.identity) as ParticleSystem;
+        var shape = steamEffect.shape;
+        shape.meshRenderer = gameObject.GetComponent<MeshRenderer>();
+    }
 
 	// Start is called before the first frame update
     void Start()
