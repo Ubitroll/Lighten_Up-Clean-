@@ -818,7 +818,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &35781778
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1338,6 +1338,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5263a126caa0781449a0a69248c14c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireEffect: {fileID: 0}
+  steamEffect: {fileID: 0}
   health: 100
   timeToFire: 10
   timePuttingFire: 0
@@ -2545,6 +2547,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5263a126caa0781449a0a69248c14c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireEffect: {fileID: 0}
+  steamEffect: {fileID: 0}
   health: 100
   timeToFire: 10
   timePuttingFire: 0
@@ -2756,6 +2760,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5263a126caa0781449a0a69248c14c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireEffect: {fileID: 0}
+  steamEffect: {fileID: 0}
   health: 100
   timeToFire: 10
   timePuttingFire: 0
@@ -3218,6 +3224,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5263a126caa0781449a0a69248c14c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireEffect: {fileID: 0}
+  steamEffect: {fileID: 0}
   health: 100
   timeToFire: 10
   timePuttingFire: 0
@@ -4828,6 +4836,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5263a126caa0781449a0a69248c14c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireEffect: {fileID: 0}
+  steamEffect: {fileID: 0}
   health: 100
   timeToFire: 10
   timePuttingFire: 0
@@ -5066,6 +5076,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5263a126caa0781449a0a69248c14c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireEffect: {fileID: 0}
+  steamEffect: {fileID: 0}
   health: 100
   timeToFire: 10
   timePuttingFire: 0
@@ -6256,6 +6268,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5263a126caa0781449a0a69248c14c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireEffect: {fileID: 0}
+  steamEffect: {fileID: 0}
   health: 100
   timeToFire: 10
   timePuttingFire: 0
@@ -6675,6 +6689,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5263a126caa0781449a0a69248c14c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireEffect: {fileID: 0}
+  steamEffect: {fileID: 0}
   health: 100
   timeToFire: 10
   timePuttingFire: 0
@@ -7090,6 +7106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5263a126caa0781449a0a69248c14c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireEffect: {fileID: 0}
+  steamEffect: {fileID: 0}
   health: 100
   timeToFire: 10
   timePuttingFire: 0
@@ -7305,6 +7323,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5263a126caa0781449a0a69248c14c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireEffect: {fileID: 0}
+  steamEffect: {fileID: 0}
   health: 100
   timeToFire: 10
   timePuttingFire: 0
@@ -7653,6 +7673,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21d22a1d522e6a54f911f419dcfe653a, type: 3}
+--- !u!1 &424403003 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7699286909514533442, guid: bac2c3c5d2565d044b0b306ff5f272cd,
+    type: 3}
+  m_PrefabInstance: {fileID: 836420058}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &433465302
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9268,6 +9294,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5263a126caa0781449a0a69248c14c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireEffect: {fileID: 0}
+  steamEffect: {fileID: 0}
   health: 100
   timeToFire: 10
   timePuttingFire: 0
@@ -9753,6 +9781,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5263a126caa0781449a0a69248c14c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireEffect: {fileID: 0}
+  steamEffect: {fileID: 0}
   health: 100
   timeToFire: 10
   timePuttingFire: 0
@@ -10412,6 +10442,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5263a126caa0781449a0a69248c14c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireEffect: {fileID: 0}
+  steamEffect: {fileID: 0}
   health: 100
   timeToFire: 10
   timePuttingFire: 0
@@ -11696,6 +11728,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5263a126caa0781449a0a69248c14c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireEffect: {fileID: 0}
+  steamEffect: {fileID: 0}
   health: 100
   timeToFire: 10
   timePuttingFire: 0
@@ -11798,6 +11832,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5263a126caa0781449a0a69248c14c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireEffect: {fileID: 0}
+  steamEffect: {fileID: 0}
   health: 100
   timeToFire: 10
   timePuttingFire: 0
@@ -11883,6 +11919,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5263a126caa0781449a0a69248c14c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireEffect: {fileID: 0}
+  steamEffect: {fileID: 0}
   health: 100
   timeToFire: 10
   timePuttingFire: 0
@@ -12537,6 +12575,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5263a126caa0781449a0a69248c14c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireEffect: {fileID: 0}
+  steamEffect: {fileID: 0}
   health: 100
   timeToFire: 10
   timePuttingFire: 0
@@ -12651,6 +12691,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5263a126caa0781449a0a69248c14c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireEffect: {fileID: 0}
+  steamEffect: {fileID: 0}
   health: 100
   timeToFire: 10
   timePuttingFire: 0
@@ -13143,6 +13185,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5263a126caa0781449a0a69248c14c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireEffect: {fileID: 0}
+  steamEffect: {fileID: 0}
   health: 100
   timeToFire: 10
   timePuttingFire: 0
@@ -13789,6 +13833,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 749138c867a7ec4438c1060ba1346864, type: 2}
+    - target: {fileID: 7699286909514533442, guid: bac2c3c5d2565d044b0b306ff5f272cd,
+        type: 3}
+      propertyPath: m_TagString
+      value: HumanCamera
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bac2c3c5d2565d044b0b306ff5f272cd, type: 3}
 --- !u!1001 &837422085
@@ -14368,6 +14417,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5263a126caa0781449a0a69248c14c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireEffect: {fileID: 0}
+  steamEffect: {fileID: 0}
   health: 100
   timeToFire: 10
   timePuttingFire: 0
@@ -15845,6 +15896,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5263a126caa0781449a0a69248c14c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireEffect: {fileID: 0}
+  steamEffect: {fileID: 0}
   health: 100
   timeToFire: 10
   timePuttingFire: 0
@@ -16850,6 +16903,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5263a126caa0781449a0a69248c14c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireEffect: {fileID: 0}
+  steamEffect: {fileID: 0}
   health: 100
   timeToFire: 10
   timePuttingFire: 0
@@ -17309,6 +17364,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5263a126caa0781449a0a69248c14c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireEffect: {fileID: 0}
+  steamEffect: {fileID: 0}
   health: 100
   timeToFire: 10
   timePuttingFire: 0
@@ -17687,12 +17744,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5263a126caa0781449a0a69248c14c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireEffect: {fileID: 198247579854507894, guid: 8fe4e75731136894eab9becfc0924ce9,
+    type: 3}
+  steamEffect: {fileID: 5310249298260660191, guid: 7c708e627b7d0174a8d4fc5acbee5705,
+    type: 3}
   health: 100
   timeToFire: 10
   timePuttingFire: 0
   waterAmountNeeded: 20
   durability: 1
-  onFire: 0
+  onFire: 1
   extinguished: 0
   wasExtinguished: 0
   fireSpreadRadius: 10
@@ -17968,6 +18029,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5263a126caa0781449a0a69248c14c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireEffect: {fileID: 0}
+  steamEffect: {fileID: 0}
   health: 100
   timeToFire: 10
   timePuttingFire: 0
@@ -18432,6 +18495,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5263a126caa0781449a0a69248c14c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireEffect: {fileID: 0}
+  steamEffect: {fileID: 0}
   health: 100
   timeToFire: 10
   timePuttingFire: 0
@@ -18994,6 +19059,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5263a126caa0781449a0a69248c14c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireEffect: {fileID: 0}
+  steamEffect: {fileID: 0}
   health: 100
   timeToFire: 10
   timePuttingFire: 0
@@ -19920,6 +19987,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5263a126caa0781449a0a69248c14c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireEffect: {fileID: 0}
+  steamEffect: {fileID: 0}
   health: 100
   timeToFire: 10
   timePuttingFire: 0
@@ -20076,6 +20145,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5263a126caa0781449a0a69248c14c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireEffect: {fileID: 0}
+  steamEffect: {fileID: 0}
   health: 100
   timeToFire: 10
   timePuttingFire: 0
@@ -20375,6 +20446,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5263a126caa0781449a0a69248c14c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireEffect: {fileID: 0}
+  steamEffect: {fileID: 0}
   health: 100
   timeToFire: 10
   timePuttingFire: 0
@@ -20504,7 +20577,7 @@ PrefabInstance:
         type: 3}
       propertyPath: fireBar
       value: 
-      objectReference: {fileID: 159144150}
+      objectReference: {fileID: 159144148}
     - target: {fileID: 3110752928967090752, guid: d18ba77e7b9a3fb44896f93fb71c7b8e,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -20734,6 +20807,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5263a126caa0781449a0a69248c14c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireEffect: {fileID: 0}
+  steamEffect: {fileID: 0}
   health: 100
   timeToFire: 10
   timePuttingFire: 0
@@ -21449,6 +21524,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5263a126caa0781449a0a69248c14c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireEffect: {fileID: 0}
+  steamEffect: {fileID: 0}
   health: 100
   timeToFire: 10
   timePuttingFire: 0
@@ -21969,22 +22046,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: door_frame-Frame_1 (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 01e015cba12f5ab459a43b9066307f36, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 51.287
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 01e015cba12f5ab459a43b9066307f36, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.52009
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 01e015cba12f5ab459a43b9066307f36, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -22.047
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 01e015cba12f5ab459a43b9066307f36, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.1649
-      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 01e015cba12f5ab459a43b9066307f36, type: 3}
       propertyPath: m_LocalPosition.x
       value: 42.313
@@ -22028,6 +22089,22 @@ PrefabInstance:
     - target: {fileID: 400002, guid: 01e015cba12f5ab459a43b9066307f36, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 01e015cba12f5ab459a43b9066307f36, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 51.287
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 01e015cba12f5ab459a43b9066307f36, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.52009
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 01e015cba12f5ab459a43b9066307f36, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -22.047
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 01e015cba12f5ab459a43b9066307f36, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.1649
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01e015cba12f5ab459a43b9066307f36, type: 3}
@@ -23001,6 +23078,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5263a126caa0781449a0a69248c14c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireEffect: {fileID: 0}
+  steamEffect: {fileID: 0}
   health: 100
   timeToFire: 10
   timePuttingFire: 0
@@ -24257,12 +24336,13 @@ MonoBehaviour:
   waterWeapons: []
   waterGun: {fileID: 1715971422}
   waterBomb: {fileID: 2054376207}
-  extinguishBar: {fileID: 0}
+  extinguishBar: {fileID: 1457415234}
   humanCrosshair: {fileID: 1820001940}
   throwForce: 30
   raycastedFire: 0
   humanUI: {fileID: 1473221852}
   ammoText: {fileID: 137459298}
+  playerCamera: {fileID: 424403003}
 --- !u!4 &1765234332 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7699286909607077149, guid: bac2c3c5d2565d044b0b306ff5f272cd,
@@ -24881,6 +24961,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5263a126caa0781449a0a69248c14c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireEffect: {fileID: 0}
+  steamEffect: {fileID: 0}
   health: 100
   timeToFire: 10
   timePuttingFire: 0
@@ -25850,22 +25932,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: door_frame-Frame_1
       objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 01e015cba12f5ab459a43b9066307f36, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 51.287
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 01e015cba12f5ab459a43b9066307f36, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.52009
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 01e015cba12f5ab459a43b9066307f36, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -22.047
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 01e015cba12f5ab459a43b9066307f36, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.1649
-      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 01e015cba12f5ab459a43b9066307f36, type: 3}
       propertyPath: m_LocalPosition.x
       value: -52.586
@@ -25910,6 +25976,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 01e015cba12f5ab459a43b9066307f36, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 51.287
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 01e015cba12f5ab459a43b9066307f36, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.52009
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 01e015cba12f5ab459a43b9066307f36, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -22.047
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 01e015cba12f5ab459a43b9066307f36, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.1649
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01e015cba12f5ab459a43b9066307f36, type: 3}
 --- !u!1 &1882613515 stripped
@@ -25930,6 +26012,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5263a126caa0781449a0a69248c14c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireEffect: {fileID: 0}
+  steamEffect: {fileID: 0}
   health: 100
   timeToFire: 10
   timePuttingFire: 0
@@ -26567,6 +26651,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5263a126caa0781449a0a69248c14c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireEffect: {fileID: 0}
+  steamEffect: {fileID: 0}
   health: 100
   timeToFire: 10
   timePuttingFire: 0
@@ -26959,6 +27045,7 @@ MonoBehaviour:
   raycastedFire: 0
   humanUI: {fileID: 1473221852}
   ammoText: {fileID: 137459298}
+  playerCamera: {fileID: 0}
 --- !u!1001 &1961080040
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28243,6 +28330,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5263a126caa0781449a0a69248c14c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireEffect: {fileID: 0}
+  steamEffect: {fileID: 0}
   health: 100
   timeToFire: 10
   timePuttingFire: 0
@@ -28626,6 +28715,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5263a126caa0781449a0a69248c14c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireEffect: {fileID: 0}
+  steamEffect: {fileID: 0}
   health: 100
   timeToFire: 10
   timePuttingFire: 0
@@ -28875,6 +28966,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5263a126caa0781449a0a69248c14c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireEffect: {fileID: 0}
+  steamEffect: {fileID: 0}
   health: 100
   timeToFire: 10
   timePuttingFire: 0
@@ -29176,6 +29269,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5263a126caa0781449a0a69248c14c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireEffect: {fileID: 0}
+  steamEffect: {fileID: 0}
   health: 100
   timeToFire: 10
   timePuttingFire: 0

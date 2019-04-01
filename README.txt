@@ -24,3 +24,5 @@
 - The steam particle effect needs to be assigned in the inspector as well
 - Major fixes with raycasting
 - Extinguish and fire bar are now treated as game objects and not images
+
+- ThrowObjectScript has been updated - there's no longer need to assign the object holder, player and player cam in the inspector

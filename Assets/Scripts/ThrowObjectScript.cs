@@ -4,19 +4,28 @@ using UnityEngine;
 using UnityEngine.UI;
 
 // This script should be attached to objects that are throwable. Enables the object to be thrown. When being carried
-// collides with another object (wall or any different one) it will drop from players hands.
+// and collides with another object (wall or any different collider) it will drop from the player's hands.
 public class ThrowObjectScript : MonoBehaviour
 {
-    public Transform objectHolder; // empty game object
-    public Transform player;
-    public Transform playerCam;
-    public Text humanUI; // used to notify the player he can pick the object up
     bool eraseUI = false; // used to erase the UI text once (other scripts are using the UI too)
     public float throwForce = 3500.0f;
     public bool ableToPickObject = false; // when the player is near the object he is able to pick it up
     public bool objectCarried = false; // checks if the player is currently carrying object
     public bool objectCollided = false; // checks if the carried object has touched a wall
-  
+
+    private Transform objectHolder; // empty game object
+    private Transform player;
+    private Transform playerCam;
+    private Text humanUI; // used to notify the player he can pick the object up and how to operate with it
+
+    void Start()
+    {
+        objectHolder = GameObject.Find("ObjectHolder").transform;
+        player = GameObject.Find("Human").transform;
+        playerCam = GameObject.FindGameObjectWithTag("HumanCamera").transform;
+        humanUI = player.gameObject.GetComponent<ExtinguishObject>().humanUI;
+    }
+
     // Update is called once per frame
     void Update()
     {
