@@ -24,21 +24,27 @@ public class PlayerInput : MonoBehaviour
     public string bButton = "C1B";
     public string xButton = "C1X";
     public string yButton = "C1Y";
-    public float runSpeed = 0;
-    public float sensitivityCamera = 0;
+    public float runSpeed = 10;
+    public float sensitivityCamera = 3;
+    public float jumpStrength = 3;
     public GameObject camera;
 
     // Privates
     private Vector3 startPos;
     private Transform playerTransform;
     private Animation anim;
+    private Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
         playerTransform = transform;
         anim = gameObject.GetComponent<Animation>();
-        
+
+        if (GetComponent<Rigidbody>() != null)
+        {
+            rb = GetComponent<Rigidbody>();
+        }
     }
 
     // Update is called once per frame
@@ -67,11 +73,13 @@ public class PlayerInput : MonoBehaviour
             playerTransform.Rotate(new Vector3(0, Input.GetAxis(horizontal), 0) * sensitivityCamera);
             camera.transform.Rotate(new Vector3(Input.GetAxis(vertical), 0, 0) * sensitivityCamera);
         }
-
+        
         // If a button is pressed
         if (Input.GetButton(aButton))
         {
             aPressed = true;
+
+            rb.AddForce(Vector3.up * 100 * jumpStrength);
         }
         else
         {
