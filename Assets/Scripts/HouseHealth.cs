@@ -26,7 +26,8 @@ public class HouseHealth : MonoBehaviour
 		{
 			// adding the health from attached script
 			ItemScript itemScript = flamableObj.GetComponent<ItemScript> ();
-			amountOfHealth += itemScript.health;
+			if(itemScript!= null)
+                amountOfHealth += itemScript.health;
 		}
 
 		return amountOfHealth;

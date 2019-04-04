@@ -143,10 +143,14 @@ public class ItemScript : MonoBehaviour
 			ItemOnFire ();
 			FireNearbyItems ();
 			fireEffectOn = true;
+            fireEffect.gameObject.SetActive(true);
 		} else
 		{
 			fireEffectOn = false;
-            fireEffect.gameObject.SetActive(false);
+            if (fireEffect != null)
+            {
+                fireEffect.gameObject.SetActive(false);
+            }
         }
 
 		// when the item's health reaches 0
