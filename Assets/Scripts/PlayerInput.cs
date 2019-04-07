@@ -28,6 +28,8 @@ public class PlayerInput : MonoBehaviour
     public float sensitivityCamera = 3;
     public float jumpStrength = 3;
     public GameObject camera;
+    public float cameraLower = 50f;
+    public float cameraUpper = -30f;
 
     // Privates
     private Vector3 startPos;
@@ -72,6 +74,16 @@ public class PlayerInput : MonoBehaviour
         {
             playerTransform.Rotate(new Vector3(0, Input.GetAxis(horizontal), 0) * sensitivityCamera);
             camera.transform.Rotate(new Vector3(Input.GetAxis(vertical), 0, 0) * sensitivityCamera);
+
+            if (camera.transform.eulerAngles.x <= cameraUpper)
+            {
+                camera.transform.Rotate(sensitivityCamera, 0, 0);
+            }
+            else if (camera.transform.eulerAngles.x >= cameraLower)
+            {
+                camera.transform.Rotate(-sensitivityCamera, 0, 0);
+            }
+           
         }
         
         // If a button is pressed
