@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-// This script checks if all objects have all references. Attached to an empty game object
+// This script checks if all objects have all references and are properly set on the scene (tags, objects assigned in inspector etc.). Attached to an empty game object "CheckSceneObject".
 public class CheckScene : MonoBehaviour
 {
     // Checks if all flamable objects are properly done
