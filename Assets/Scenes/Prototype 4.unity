@@ -1113,7 +1113,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &35781778
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11656,10 +11656,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: cup (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 2dc6d9d4463db3b4bb23ed17653855c8, type: 3}
-      propertyPath: m_TagString
-      value: Flamable
-      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 2dc6d9d4463db3b4bb23ed17653855c8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 91.89224
@@ -19156,11 +19152,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 749138c867a7ec4438c1060ba1346864, type: 2}
-    - target: {fileID: 7699286909514533442, guid: bac2c3c5d2565d044b0b306ff5f272cd,
-        type: 3}
-      propertyPath: m_TagString
-      value: HumanCamera
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bac2c3c5d2565d044b0b306ff5f272cd, type: 3}
 --- !u!4 &837052987 stripped
@@ -21436,14 +21427,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireEffect: {fileID: 899256848}
-  steamEffect: {fileID: 5310249298260660191, guid: 7c708e627b7d0174a8d4fc5acbee5705,
-    type: 3}
+  steamEffect: {fileID: 0}
   health: 100
   timeToFire: 10
   timePuttingFire: 0
   waterAmountNeeded: 20
   durability: 1
-  onFire: 0
+  onFire: 1
   extinguished: 0
   wasExtinguished: 0
   fireSpreadRadius: 10
@@ -26735,10 +26725,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.165
       objectReference: {fileID: 0}
-    - target: {fileID: 2300000, guid: 01e015cba12f5ab459a43b9066307f36, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 7c88a0ce3ce3bca4d99d97f0b783e836, type: 2}
     - target: {fileID: 400000, guid: 01e015cba12f5ab459a43b9066307f36, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.000057101
@@ -26751,6 +26737,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.81034
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 01e015cba12f5ab459a43b9066307f36, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7c88a0ce3ce3bca4d99d97f0b783e836, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01e015cba12f5ab459a43b9066307f36, type: 3}
 --- !u!1 &1268418189 stripped
@@ -28549,8 +28539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireEffect: {fileID: 899256848}
-  steamEffect: {fileID: 5310249298260660191, guid: 7c708e627b7d0174a8d4fc5acbee5705,
-    type: 3}
+  steamEffect: {fileID: 0}
   health: 100
   timeToFire: 10
   timePuttingFire: 0
@@ -28575,49 +28564,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: 2dc6d9d4463db3b4bb23ed17653855c8, type: 3}
---- !u!1 &1378955840
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1378955842}
-  - component: {fileID: 1378955841}
-  m_Layer: 0
-  m_Name: CheckSceneObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1378955841
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1378955840}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3901339b3cb85d746ae415ebe537029b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1378955842
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1378955840}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 78.7, y: -0.5208893, z: 15.3}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 75
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1379487621 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: d7c1d343265854d4babb7cc856257aa9,
@@ -29230,7 +29176,7 @@ PrefabInstance:
         type: 3}
       propertyPath: fireBar
       value: 
-      objectReference: {fileID: 159144148}
+      objectReference: {fileID: 0}
     - target: {fileID: 3110752928967090752, guid: d18ba77e7b9a3fb44896f93fb71c7b8e,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -30344,7 +30290,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3dd8ef057be616643a2ad96c239a2c3f, type: 3}
       propertyPath: m_RootOrder
-      value: 76
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3dd8ef057be616643a2ad96c239a2c3f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -32169,12 +32115,6 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: e47c40f3531093a49960003732d8f5d7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33857b1bc7048e545acb5870bb2a6c58, type: 3}
---- !u!1 &1599927393 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7699286909514533442, guid: bac2c3c5d2565d044b0b306ff5f272cd,
-    type: 3}
-  m_PrefabInstance: {fileID: 836420058}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1601489668
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34723,13 +34663,13 @@ MonoBehaviour:
   waterWeapons: []
   waterGun: {fileID: 1715971422}
   waterBomb: {fileID: 2054376207}
-  extinguishBar: {fileID: 1457415234}
+  extinguishBar: {fileID: 0}
   humanCrosshair: {fileID: 1820001940}
   throwForce: 30
   raycastedFire: 0
   humanUI: {fileID: 1473221852}
   ammoText: {fileID: 137459298}
-  playerCamera: {fileID: 1599927393}
+  playerCamera: {fileID: 0}
 --- !u!4 &1765234332 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7699286909607077149, guid: bac2c3c5d2565d044b0b306ff5f272cd,
@@ -36644,6 +36584,32 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1309772038}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1864359796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864359792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5263a126caa0781449a0a69248c14c65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireEffect: {fileID: 198247579854507894, guid: 8fe4e75731136894eab9becfc0924ce9,
+    type: 3}
+  steamEffect: {fileID: 5310249298260660191, guid: 7c708e627b7d0174a8d4fc5acbee5705,
+    type: 3}
+  health: 100
+  timeToFire: 10
+  timePuttingFire: 0
+  waterAmountNeeded: 20
+  durability: 1
+  onFire: 0
+  extinguished: 0
+  wasExtinguished: 0
+  fireSpreadRadius: 10
+  amountOfWater: 0
 --- !u!64 &1864359797
 MeshCollider:
   m_ObjectHideFlags: 0
