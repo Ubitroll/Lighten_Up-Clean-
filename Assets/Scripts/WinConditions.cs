@@ -53,8 +53,17 @@ public class WinConditions : MonoBehaviour
 
             if (tasksTillCompletion != CompletionAmount.No_Condition)
             {
-                //Code for when tasks are done goes here
-                //PlayerWin("Human");
+                if (Task.tasks.Count > 0)
+                {
+                    if (Task.CompletionAmount() >= taskCompletion)
+                    {
+                        PlayerWin("Human");
+                    }
+                }
+                else
+                {
+                    Debug.LogWarning("Human player win condition set to tasks, but there were no tasks found in the scene.");
+                }
             }
 
             if (timeOutWinner != Player.No_Condition)

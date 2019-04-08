@@ -1,67 +1,109 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
+using UnityEngine.UI;
 
-public class Task
+[RequireComponent(typeof(SphereCollider))]
+public class Task : MonoBehaviour
 {
-    public static List<Task> taskList = new List<Task>();
+    SphereCollider trigger;
+    static Text progressBar;
 
-    public string name;
-    public bool enabled;
-    public List<Objective> objectives;
-    public Vector2 objectiveScroll;
+    public static List<Task> tasks = new List<Task>();
 
-    public Task(string taskName)
+    [Min(0)]
+    public float triggerRadius = 20;
+    public float holdTime = 10;
+    float progress = 0;
+    bool complete = false;
+
+    private void Start()
     {
-        name = taskName;
-        taskList.Add(this);
-        objectives = new List<Objective>();
+        trigger = GetComponent<SphereCollider>();
+        trigger.isTrigger = true;
+        trigger.radius = triggerRadius;
+        tasks.Add(this);
+        if (progressBar == null)
+        {
+            if (GameObject.FindGameObjectWithTag("TaskProgress"))
+            {
+                progressBar = GameObject.FindGameObjectWithTag("TaskProgress").GetComponent<Text>();
+            }
+            else
+            {
+                progressBar = new GameObject().AddComponent<Text>();
+            }
+        }
     }
 
-    public Objective NewObjective(int index)
+    [MenuItem("GameObject/Create Task", priority = 0)]
+    static Task CreateTask()
     {
-        Objective newObjective = null;
-        switch (index)
-        {
-            case 0:
-                newObjective = new CheckpointObjective();
-                break;
-            case 1:
-                newObjective = new InteractObjective();
-                break;
-            default:
-                Debug.LogWarning("Please choose an objective type from the dropdown menu.");
-                break;
-        }
-        if (newObjective != null)
-        {
-            objectives.Add(newObjective);
-        }
-        return newObjective;
+        return new GameObject("New Task").AddComponent<Task>();
     }
 
-    public void Remove()
+    private void Reset()
     {
-        foreach (Objective obj in objectives)
-        {
-            obj.DestroyTrigger();
-        }
-        taskList.Remove(this);
+        trigger = GetComponent<SphereCollider>();
+        trigger.hideFlags = HideFlags.NotEditable;
+        trigger.radius = 0;
     }
 
-    public void Remove(Objective objective)
+    private void OnDrawGizmosSelected()
     {
-        objectives.Remove(objective);
-        objective.DestroyTrigger();
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, triggerRadius);
+        Gizmos.color = new Color(1, 0, 0, 0.1f);
+        Gizmos.DrawSphere(transform.position, triggerRadius);
     }
 
-    public static string[] ToNameArray()
+    private void OnTriggerStay(Collider other)
     {
-        string[] stringArray = new string[taskList.Count];
-        for (int i = 0; i < taskList.Count; i++)
+        if (other.tag == "Human")
         {
-            stringArray[i] = taskList[i].name;
+            if (!complete)
+            {
+                if (Input.GetButton("C1RB") || Input.GetKey(KeyCode.T))
+                {
+                    Debug.Log("Completing task...");
+                    progress += Time.deltaTime;
+                    if (progress >= holdTime)
+                    {
+                        complete = true;
+                    }
+                    progressBar.text = "Progress: " + ((int)(progress / holdTime * 100)).ToString() + "%";
+                }
+                else
+                {
+                    progressBar.text = "Hold RB (Debug T)";
+                }
+            }
+            else
+            {
+                progressBar.text = "Completed Task";
+            }
         }
-        return stringArray;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Human")
+        {
+            progressBar.text = "";
+        }
+    }
+
+    public static float CompletionAmount()
+    {
+        int tasksDone = 0;
+        foreach (Task task in tasks)
+        {
+            if (task.complete)
+            {
+                tasksDone++;
+            }
+        }
+        return (tasksDone / tasks.Count) * 100;
     }
 }
