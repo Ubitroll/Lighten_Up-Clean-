@@ -12,6 +12,7 @@ TagManager:
   - Candle
   - HumanCamera
   - TaskProgress
+  - AudioManager
   layers:
   - Default
   - TransparentFX

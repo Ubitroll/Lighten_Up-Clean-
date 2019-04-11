@@ -15,6 +15,7 @@ public class Task : MonoBehaviour
     [Min(0)]
     public float triggerRadius = 20;
     public float holdTime = 10;
+    public string taskPrompt;
     float progress = 0;
     bool complete = false;
 
@@ -40,7 +41,9 @@ public class Task : MonoBehaviour
     [MenuItem("GameObject/Create Task", priority = 0)]
     static Task CreateTask()
     {
-        return new GameObject("New Task").AddComponent<Task>();
+        GameObject task = new GameObject("New Task");
+        Selection.activeObject = task;
+        return task.AddComponent<Task>();
     }
 
     private void Reset()
@@ -64,19 +67,20 @@ public class Task : MonoBehaviour
         {
             if (!complete)
             {
-                if (Input.GetButton("C1RB") || Input.GetKey(KeyCode.T))
+                if (Input.GetButton("C1X") || Input.GetKey(KeyCode.T))
                 {
                     Debug.Log("Completing task...");
                     progress += Time.deltaTime;
                     if (progress >= holdTime)
                     {
                         complete = true;
+                        AudioManager.PlaySound("TaskComplete", transform.position);
                     }
                     progressBar.text = "Progress: " + ((int)(progress / holdTime * 100)).ToString() + "%";
                 }
                 else
                 {
-                    progressBar.text = "Hold RB (Debug T)";
+                    progressBar.text = "Hold X to " + taskPrompt;
                 }
             }
             else
