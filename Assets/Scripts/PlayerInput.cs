@@ -61,7 +61,7 @@ public class PlayerInput : MonoBehaviour
             direction.z = Input.GetAxis(moveY);
 
             // if the player is moving
-            if (direction.x != 0 && direction.z != 0)
+            if (direction.x != 0 || direction.z != 0)
                 walking = true;
             else
                 walking = false;
@@ -90,6 +90,8 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetButton(aButton))
         {
             aPressed = true;
+
+            Debug.Log("A button was pressed");
 
             rb.AddForce(Vector3.up * 100 * jumpStrength);
         }
