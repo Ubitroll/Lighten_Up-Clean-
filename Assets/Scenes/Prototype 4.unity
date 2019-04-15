@@ -551,6 +551,19 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1450712786}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &21679966
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 21679965}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 25, z: 15}
+  m_Center: {x: 0, y: 5.432096, z: 0}
 --- !u!64 &21679969
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -30423,6 +30436,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Toilet Sink
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: be3aa16b213f53b49af2b8a10a642123, type: 3}
+      propertyPath: m_TagString
+      value: WaterSupply
+      objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: be3aa16b213f53b49af2b8a10a642123, type: 3}
       propertyPath: m_LocalPosition.x
       value: -49.49
@@ -33830,6 +33847,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: sink
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: be3aa16b213f53b49af2b8a10a642123, type: 3}
+      propertyPath: m_TagString
+      value: WaterSupply
+      objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: be3aa16b213f53b49af2b8a10a642123, type: 3}
       propertyPath: m_LocalPosition.x
       value: 108.03
@@ -33878,6 +33899,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 106990da2fa268d41bbf465a14f3898d, type: 2}
+    - target: {fileID: 400000, guid: be3aa16b213f53b49af2b8a10a642123, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be3aa16b213f53b49af2b8a10a642123, type: 3}
 --- !u!4 &1451499361 stripped
@@ -40692,6 +40717,19 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1283888523}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1775227149
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775227148}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 25, y: 25, z: 25}
+  m_Center: {x: 0, y: 5.432096, z: 0}
 --- !u!64 &1775227152
 MeshCollider:
   m_ObjectHideFlags: 0
