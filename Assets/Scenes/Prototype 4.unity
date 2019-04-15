@@ -971,8 +971,8 @@ Transform:
   - {fileID: 1620610349}
   - {fileID: 989070272}
   - {fileID: 816882566}
-  - {fileID: 407459076}
   - {fileID: 364375261}
+  - {fileID: 407459076}
   - {fileID: 7329227}
   - {fileID: 780340093}
   - {fileID: 204219196}
@@ -8122,6 +8122,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 39f9921c0fcddcb42bdc3855acc5e2ad,
     type: 3}
   m_PrefabInstance: {fileID: 1228776217}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &297092127 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7699286909514533442, guid: bac2c3c5d2565d044b0b306ff5f272cd,
+    type: 3}
+  m_PrefabInstance: {fileID: 836420058}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &298408863
 PrefabInstance:
@@ -25256,7 +25262,7 @@ MonoBehaviour:
   timePuttingFire: 0
   waterAmountNeeded: 20
   durability: 1
-  onFire: 1
+  onFire: 0
   extinguished: 0
   wasExtinguished: 0
   fireSpreadRadius: 10
@@ -31769,6 +31775,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.165
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 01e015cba12f5ab459a43b9066307f36, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7c88a0ce3ce3bca4d99d97f0b783e836, type: 2}
     - target: {fileID: 400000, guid: 01e015cba12f5ab459a43b9066307f36, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.000057101
@@ -31781,10 +31791,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.81034
       objectReference: {fileID: 0}
-    - target: {fileID: 2300000, guid: 01e015cba12f5ab459a43b9066307f36, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 7c88a0ce3ce3bca4d99d97f0b783e836, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01e015cba12f5ab459a43b9066307f36, type: 3}
 --- !u!1 &1267966213 stripped
@@ -36618,32 +36624,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1138139023}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1497638523 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: 89fcb0cf74c3e8a40957911f1aafd07e,
-    type: 3}
-  m_PrefabInstance: {fileID: 397094182}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1497638524
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1497638523}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2d90baac978f9643adc3bcf189e8e52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectHolder: {fileID: 0}
-  player: {fileID: 0}
-  playerCam: {fileID: 0}
-  humanUI: {fileID: 1473221852}
-  throwForce: 3500
-  ableToPickObject: 0
-  objectCarried: 0
-  objectCollided: 0
 --- !u!4 &1502474869 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 26a03d1d7689d834f9ae0029241c751f,
@@ -40945,7 +40925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waterAmmoClip: 10
-  waterAmmoAll: 50
+  waterAmmoReserve: 30
   waterAmount: 5
   waterRange: 45
   ammoText: {fileID: 137459298}
@@ -42014,13 +41994,13 @@ MonoBehaviour:
   waterWeapons: []
   waterGun: {fileID: 1715971422}
   waterBomb: {fileID: 2054376207}
-  extinguishBar: {fileID: 0}
+  extinguishBar: {fileID: 1457415234}
   humanCrosshair: {fileID: 1820001940}
   throwForce: 30
   raycastedFire: 0
   humanUI: {fileID: 1473221852}
   ammoText: {fileID: 137459298}
-  playerCamera: {fileID: 0}
+  playerCamera: {fileID: 297092127}
 --- !u!4 &1765234332 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7699286909607077149, guid: bac2c3c5d2565d044b0b306ff5f272cd,
@@ -45935,8 +45915,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5263a126caa0781449a0a69248c14c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireEffect: {fileID: 0}
-  steamEffect: {fileID: 0}
+  fireEffect: {fileID: 198247579854507894, guid: 8fe4e75731136894eab9becfc0924ce9,
+    type: 3}
+  steamEffect: {fileID: 5310249298260660191, guid: 7c708e627b7d0174a8d4fc5acbee5705,
+    type: 3}
   health: 100
   timeToFire: 3
   timePuttingFire: 0
@@ -46480,8 +46462,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5263a126caa0781449a0a69248c14c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireEffect: {fileID: 0}
-  steamEffect: {fileID: 0}
+  fireEffect: {fileID: 198247579854507894, guid: 8fe4e75731136894eab9becfc0924ce9,
+    type: 3}
+  steamEffect: {fileID: 5310249298260660191, guid: 7c708e627b7d0174a8d4fc5acbee5705,
+    type: 3}
   health: 100
   timeToFire: 3
   timePuttingFire: 0
