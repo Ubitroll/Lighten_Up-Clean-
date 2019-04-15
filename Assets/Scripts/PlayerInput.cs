@@ -55,7 +55,7 @@ public class PlayerInput : MonoBehaviour
         // If not grounded
         if (IsGrounded() == false)
         {
-            rb.AddForce(Vector3.down * 3);
+            rb.AddForce(Vector3.down * 6);
         }
         
         

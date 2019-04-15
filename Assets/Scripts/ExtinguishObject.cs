@@ -31,7 +31,7 @@ public class ExtinguishObject : MonoBehaviour
 	private void FillUpWater(GameObject weapon)
 	{
         // When the player presses X button
-		if(Input.GetButtonDown("C1X"))
+		if(Input.GetButton("C1A"))
 		{
 			Debug.Log ("Filling up current weapon with water");
 
@@ -40,10 +40,10 @@ public class ExtinguishObject : MonoBehaviour
 			{
 				WaterGunScript waterGunScript = waterGun.GetComponent<WaterGunScript> ();
 
-				// assuming the water gun can have maximum of 30 ammo (10 in clip and 20 in reserve)
-				int currentAmmo = waterGunScript.waterAmmoClip + waterGunScript.waterAmmoClip;
+				// assuming the water gun can have maximum of 40 ammo (10 in clip and 30 in reserve)
+				int currentAmmo = waterGunScript.waterAmmoClip + waterGunScript.waterAmmoReserve;
 
-				if (currentAmmo < 30) 
+				if (currentAmmo < 40) 
 				{
 					// filling up
 					timeFillingUp += Time.deltaTime;
@@ -57,9 +57,9 @@ public class ExtinguishObject : MonoBehaviour
 							waterGunScript.waterAmmoClip++;
 						} 
 						else // then filling up the reserve ammo
-							if(waterGunScript.waterAmmoAll < 20)
+							if(waterGunScript.waterAmmoReserve < 30)
 							{
-								waterGunScript.waterAmmoAll++;
+								waterGunScript.waterAmmoReserve++;
 							}
 						
 						// resetting
@@ -98,7 +98,7 @@ public class ExtinguishObject : MonoBehaviour
 		if (collider.gameObject.tag == "WaterSupply") 
 		{
 			nearWaterTrigger = true;
-			humanUI.text = "Hold X to fill up!";
+			humanUI.text = "Hold A to fill up!";
 		}
         // Debug purposes
         // Debug.Log ("Human entered trigger " + collider.gameObject.name + " object.");

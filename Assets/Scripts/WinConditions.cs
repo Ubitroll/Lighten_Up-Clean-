@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WinConditions : MonoBehaviour
 {
@@ -92,5 +93,6 @@ public class WinConditions : MonoBehaviour
         //Perform any code for when a player wins here
         gameEnded = true;
         Debug.Log(player + " wins!");
+        SceneManager.LoadScene("WinScreen" + player);
     }
 }
