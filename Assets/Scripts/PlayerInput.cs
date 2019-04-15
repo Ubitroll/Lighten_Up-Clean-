@@ -52,6 +52,13 @@ public class PlayerInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // If not grounded
+        if (IsGrounded() == false)
+        {
+            rb.AddForce(Vector3.down * 3);
+        }
+        
+        
         // If the left stick is set to respond
         if (leftStick)
         {

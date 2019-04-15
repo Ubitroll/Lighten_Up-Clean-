@@ -168,6 +168,8 @@ public class ItemScript : MonoBehaviour
 			if (!(wasExtinguished))
 				timeToFire *= 2;	
 			wasExtinguished = true; // this then would stay true through the whole game and the if statement before it will only be called once.
+
+            extinguished = false;
 		}
 
 		// if the item is filled with enough water it's extinguished. checking onFire just to be sure, but should be checked in other scripts before accessing the amountOfWater
