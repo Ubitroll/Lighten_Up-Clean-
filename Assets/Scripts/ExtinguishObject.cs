@@ -40,10 +40,10 @@ public class ExtinguishObject : MonoBehaviour
 			{
 				WaterGunScript waterGunScript = waterGun.GetComponent<WaterGunScript> ();
 
-				// assuming the water gun can have maximum of 30 ammo (10 in clip and 20 in reserve)
-				int currentAmmo = waterGunScript.waterAmmoClip + waterGunScript.waterAmmoClip;
+				// assuming the water gun can have maximum of 40 ammo (10 in clip and 30 in reserve)
+				int currentAmmo = waterGunScript.waterAmmoClip + waterGunScript.waterAmmoReserve;
 
-				if (currentAmmo < 30) 
+				if (currentAmmo < 40) 
 				{
 					// filling up
 					timeFillingUp += Time.deltaTime;
@@ -57,9 +57,9 @@ public class ExtinguishObject : MonoBehaviour
 							waterGunScript.waterAmmoClip++;
 						} 
 						else // then filling up the reserve ammo
-							if(waterGunScript.waterAmmoAll < 20)
+							if(waterGunScript.waterAmmoReserve < 30)
 							{
-								waterGunScript.waterAmmoAll++;
+								waterGunScript.waterAmmoReserve++;
 							}
 						
 						// resetting
