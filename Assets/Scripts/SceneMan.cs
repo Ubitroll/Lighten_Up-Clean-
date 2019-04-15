@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SceneMan : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class SceneMan : MonoBehaviour
 
     public void LoadMainLevel()
     {
-        Application.LoadLevel("Prototype2");
+        SceneManager.LoadScene("Prototype 4");
         Debug.Log("Loaded Main Level");
     }
 }
