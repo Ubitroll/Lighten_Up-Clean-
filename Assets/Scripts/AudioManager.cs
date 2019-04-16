@@ -2,20 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable, RequireComponent(typeof(AudioSource)), ExecuteAlways]
 public class AudioManager : MonoBehaviour
 {
-    public string[] audioClipNames;
-    public AudioClip[] audioClips;
+    new static AudioManager audio;
 
-    static Dictionary<string, AudioClip> clips = new Dictionary<string, AudioClip>();
+    [SerializeField]
+    public List<Sound> sounds = new List<Sound>();
 
-    private void Start()
+    static AudioSource audioSource;
+
+    void OnEnable()
     {
-        for(int i = 0; i < GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>().audioClips.Length; i++)
-        {
-            clips.Add(GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>().audioClipNames[i],
-                GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>().audioClips[i]);
-        }
+        audioSource = GetComponent<AudioSource>();
+    }
+
+    public static void PlaySound(AudioClip audioClip)
+    {
+        audioSource.PlayOneShot(audioClip);
+    }
+
+    public static void PlaySound(string audioName)
+    {
+        audioSource.PlayOneShot(GetClip(audioName));
     }
 
     public static void PlaySound(string audioName, Vector3 position)
@@ -23,14 +32,53 @@ public class AudioManager : MonoBehaviour
         AudioSource.PlayClipAtPoint(GetClip(audioName), position);
     }
 
-    public static void PlaySound(string audioName, GameObject point)
-    {
-        AudioSource.PlayClipAtPoint(GetClip(audioName), point.transform.position);
-    }
-
-    // No error catching!!
     static AudioClip GetClip(string clipName)
     {
-        return clips[clipName];
+        foreach (Sound clip in audio.sounds)
+        {
+            if (clip.name == clipName)
+            {
+                return clip.clip;
+            }
+        }
+        Debug.LogWarning("No audio clip found with name: " + clipName);
+        return null;
     }
+
+    static void Start()
+    {
+        AudioManager audio = FindObjectOfType<AudioManager>() ?? null;
+        if (audio == null)
+        {
+            Debug.LogWarning("No AudioManager found in scene.");
+        }
+    }
+}
+
+public struct Sound
+{
+    public string name;
+    public AudioClip clip;
+
+    public Sound(string audioName, AudioClip audioClip)
+    {
+        name = audioName;
+        clip = audioClip;
+    }
+
+    public void SetAudio(string newName, AudioClip newAudio)
+    {
+        name = newName;
+        clip = newAudio;
+    }
+
+    public void SetClip(AudioClip newClip)
+    {
+        clip = newClip;
+    }
+
+    public void SetName(string newName)
+    {
+        name = newName;
+    } 
 }

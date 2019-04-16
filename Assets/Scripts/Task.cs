@@ -12,12 +12,15 @@ public class Task : MonoBehaviour
 
     public static List<Task> tasks = new List<Task>();
 
-    [Min(0)]
-    public float triggerRadius = 20;
-    public float holdTime = 10;
-    public string taskPrompt;
+    public float triggerRadius = 20; // Radius of the task
+    public float holdTime = 10; // Time to hold down the button
+    public string taskPrompt; // Text when near a task. (Press x to ...)
+    public Transform lookTarget; // Optional target that requires the player to look in a specific direction to complete the task
+
+    [HideInInspector]
+    public bool complete = false;
+
     float progress = 0;
-    bool complete = false;
 
     private void Start()
     {
@@ -35,6 +38,11 @@ public class Task : MonoBehaviour
             {
                 progressBar = new GameObject().AddComponent<Text>();
             }
+        }
+
+        if (taskPrompt == "")
+        {
+            Debug.LogWarning("Task requires a description to function.");
         }
     }
 
@@ -65,22 +73,22 @@ public class Task : MonoBehaviour
     {
         if (other.tag == "Human")
         {
-            if (!complete)
+            if (!complete && LookingAtTarget(other.transform))
             {
-                if (Input.GetButton("C1X") || Input.GetKey(KeyCode.T))
+                if (Input.GetButton("C1X"))
                 {
                     Debug.Log("Completing task...");
                     progress += Time.deltaTime;
                     if (progress >= holdTime)
                     {
                         complete = true;
-                        AudioManager.PlaySound("TaskComplete", transform.position);
+                        AudioManager.PlaySound("TaskComplete");
                     }
                     progressBar.text = "Progress: " + ((int)(progress / holdTime * 100)).ToString() + "%";
                 }
                 else
                 {
-                    progressBar.text = "Hold X to " + taskPrompt;
+                    progressBar.text = "Hold X to " + (taskPrompt != "" ? taskPrompt : "do task"); // Show the task prompt on the UI, defaults to "do task" if it is empty.
                 }
             }
             else
@@ -109,5 +117,22 @@ public class Task : MonoBehaviour
             }
         }
         return (tasksDone / tasks.Count) * 100;
+    }
+
+    bool LookingAtTarget(Transform lookDirection)
+    { 
+        if (lookTarget == null)
+        {
+            return true;
+        }
+        RaycastHit[] hits = Physics.RaycastAll(lookDirection.position, lookDirection.forward);
+        foreach (RaycastHit hit in hits)
+        {
+            if (hit.collider.gameObject.transform == lookTarget)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }
