@@ -80,8 +80,6 @@ public class WaterGunScript : MonoBehaviour
 					if (itemScript.onFire) 
 					{
                         // adding steam effect
-                        //steamEffect = Instantiate(Resources.Load("Prefabs/Steam"), itemScript.transform.position, Quaternion.identity) as GameObject;
-
                         itemScript.AddSteamEffect();
 
 						// passing the amount of water to itemscript
@@ -93,7 +91,7 @@ public class WaterGunScript : MonoBehaviour
 				}// end of hit.tag = "Flamable"
 			}// end of Physics.Raycast
 		}// end of waterAmmoClip > 0
-	}
+	}// end of ShootWater()
 
     // Update is called once per frame
     void Update()

@@ -60,8 +60,10 @@ public class MainMenuScript : MonoBehaviour
     // Kind of Start() method but plays at the start of each scene
     void GetSceneComponents()
     {
+        // If the current scene is the main menu
         if (sceneName == "MainMenu")
         {
+            // Getting the buttons (panels)
             startButton = GameObject.Find("StartButton").gameObject;
             optionsButton = GameObject.Find("OptionsButton").gameObject;
             quitButton = GameObject.Find("QuitButton").gameObject;
@@ -83,18 +85,21 @@ public class MainMenuScript : MonoBehaviour
             quitRect.sizeDelta = new Vector2(panelWidth, quitRect.sizeDelta.y);
             quitRect.position = new Vector2(panelWidth * 2.5f + 30, quitRect.position.y);
 
-            // Storing the buttons in dictionary
+            // Storing the buttons in dictionary, if true, the button will be highlighted
             buttonsDict = new Dictionary<GameObject, bool>();
             buttonsDict.Add(startButton, true);
             buttonsDict.Add(optionsButton, false);
             buttonsDict.Add(quitButton, false);
         }
 
+        // If the current scene is the start scene
         if (sceneName == "StartScene")
         {
+            // Getting the controller images
             controller1 = GameObject.Find("Controller1").gameObject;
             controller2 = GameObject.Find("Controller2").gameObject;
 
+            // Getting the start position of the controllers (before choosing any character)
             controllerStartPosX = controller1.transform.position.x;
         }
     }

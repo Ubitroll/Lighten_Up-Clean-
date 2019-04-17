@@ -62,7 +62,7 @@ public class ItemScript : MonoBehaviour
 				} // end of !(itemScript.onFire)
 			}// end of (tag == "Flamable")
 		}// end of foreach
-	}
+	}// end of FireNearbyItems()
 
 	// blocking any action on this object, performed when the object was fully burnt
 	void BlockActionOnThisObject()

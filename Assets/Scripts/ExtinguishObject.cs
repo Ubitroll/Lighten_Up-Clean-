@@ -16,7 +16,7 @@ public class ExtinguishObject : MonoBehaviour
 	public GameObject extinguishBar; // extinguish bar displaying how much is left to put off the fire from the object
 	public Image humanCrosshair; // human crosshair
 	public float throwForce = 30.0f; // amount of force that player throws the Water-Bomb
-	public bool raycastedFire = false; // needed to use this to make the extinguish bar properly work
+	public bool raycastedFire = false; // needed to use this to make the extinguish bar properly work, it will show up when the player raycasts fire
 	public Text humanUI; // UI text
 	public Text ammoText; // UT ammunition text
     public GameObject playerCamera;

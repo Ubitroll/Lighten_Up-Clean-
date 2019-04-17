@@ -35,13 +35,10 @@ public class WaterBombScript : MonoBehaviour
 					// the closer the object the bigger the number which will lead to more water poured on the nearby objects on fire
 					float waterRate = waterRadius - distance; // example 10 - 3, waterRate = 7
 
-
 					// leting the item script handle extinguishing
 					itemScript.amountOfWater += (waterAmount * (waterRate / 10));
 
                     // adding steam particle effect
-                    //steamEffect = Instantiate(Resources.Load("Prefabs/Steam"), itemScript.transform.position, Quaternion.identity) as GameObject;
-
                     itemScript.AddSteamEffect();
                     
                     //Debug.Log ("I'm a water bomb and I exploded on " + col.gameObject.name + " object, distance from the object is " + distance + ", amountfilled = " + itemScript.amountOfWater);
@@ -52,7 +49,7 @@ public class WaterBombScript : MonoBehaviour
 		// had issues with object being destroyed at the start because it collided with the human
 		if(timeAlive > 0.2f)
 			Destroy (this.gameObject);
-	}
+	}// end of OnCollisionEnter
 
     // Update is called once per frame
     void Update()

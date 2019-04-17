@@ -48,7 +48,7 @@ public class CheckScene : MonoBehaviour
             }
         }
 
-        // Displaying errors only when they actually are errors
+        // Displaying errors only when they actually exist
         if(itemScriptCount > 0)
             EditorUtility.DisplayDialog("Flamable object doesn't have ItemScript attached!", itemScriptCount + " objects have 'Flamable' tag but don't have ItemScript script attached to it. Check logs for more details.", "Ok");
 

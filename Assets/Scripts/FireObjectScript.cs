@@ -9,7 +9,7 @@ public class FireObjectScript : MonoBehaviour
 	public GameObject[] flamableObjects; // array of all the objects that candle can burn
 	GameObject closestObject; // closest flamable object
 	Vector3 candleCurrentPos; // candle position
-	float distanceDifference = Mathf.Infinity; // distance difference between the candle and nearest flamable object's face
+    float distanceDifference; // distance difference between the candle and nearest flamable object's face
 	float timePuttingFire = 0.0f; // how long the candle was lighting up an object
 	public Text candleUI; // UI text to light up and object
 	public GameObject fireBar; // fire bar displaying how much is left to fire up the object
@@ -43,7 +43,7 @@ public class FireObjectScript : MonoBehaviour
 
 	void OnCollisionEnter(Collision collision)
 	{
-		//Debug.Log ("I'm walking on the " + collision.gameObject.name + " object!!!!");
+		//Debug.Log ("I'm walking on the " + collision.gameObject.name + " object.");
 		if(collision.gameObject.tag == "Flamable")
 			StartFire ();
 		resetFireTime = false;
@@ -51,7 +51,7 @@ public class FireObjectScript : MonoBehaviour
 
 	void OnCollisionExit(Collision collision)
 	{
-		//Debug.Log ("I'm no longer walking on the " + collision.gameObject.name + "object!!!!");
+		//Debug.Log ("I'm no longer walking on the " + collision.gameObject.name + "object.");
 		if(collision.gameObject.tag == "Flamable")
 			resetFireTime = true;
 	}
@@ -133,13 +133,12 @@ public class FireObjectScript : MonoBehaviour
 		candleCurrentPos = this.transform.position;
 		closestObject = FindClosestFlamableObject ();
 
-		// the closest point to the bounding box of the collider (so face, not center)
+		// the closest point to the bounding box of the collider (so face, not centre)
 		Vector3 closestPoint = closestObject.GetComponent<Collider> ().ClosestPointOnBounds (candleCurrentPos);
 		distanceDifference = Vector3.Distance (closestPoint, candleCurrentPos);
 
 	
 		// if candle is close enough to the flamable object
-		// if (distanceDifference < 1 && candle isn't jumping)
 		if (distanceDifference < 1) 
 		{
 			StartFire ();
