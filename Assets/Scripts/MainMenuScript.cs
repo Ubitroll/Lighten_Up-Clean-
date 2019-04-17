@@ -363,7 +363,7 @@ public class MainMenuScript : MonoBehaviour
                     error.text = "Both players need to choose different characters.";
                 }
                 else
-                    SceneManager.LoadScene("Prototype4");
+                    SceneManager.LoadScene("Prototype 4");
             }
 
             if(Input.GetButton(bButton))
