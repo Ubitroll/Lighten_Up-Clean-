@@ -30,7 +30,7 @@ public class PlayerInput : MonoBehaviour
     public GameObject camera;
     public float cameraLower = 50f;
     public float cameraUpper = -30f;
-
+    public float feetDistance;
     // Privates
     private Vector3 startPos;
     private Transform playerTransform;
@@ -52,6 +52,13 @@ public class PlayerInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // If not grounded
+        if (IsGrounded() == false)
+        {
+            rb.AddForce(Vector3.down * 6);
+        }
+        
+        
         // If the left stick is set to respond
         if (leftStick)
         {
@@ -92,8 +99,10 @@ public class PlayerInput : MonoBehaviour
             aPressed = true;
 
             Debug.Log("A button was pressed");
-
-            rb.AddForce(Vector3.up * 100 * jumpStrength);
+            if (IsGrounded())
+            {
+                rb.AddForce(Vector3.up * 100 * jumpStrength);
+            }
         }
         else
         {
@@ -140,14 +149,14 @@ public class PlayerInput : MonoBehaviour
             standing = false;
             running = false;
         } else if (standing)
-               {
-                    walking = false;
-                    running = false;
-                } else if(running)
-                        {
-                            walking = false;
-                            standing = false;
-                        }
+        {
+            walking = false;
+            running = false;
+        } else if(running)
+        {
+            walking = false;
+            standing = false;
+        }
 
         // play the approporiate animation
         if (walking)
@@ -155,12 +164,17 @@ public class PlayerInput : MonoBehaviour
             anim.Play("walk");
         }
         else if (standing)
-              {
-                  anim.Play("t-pose");
-               }
-               else if (running)
-                    {
-                        anim.Play("run");
-                    }
+        {
+            anim.Play("t-pose");
+        }
+        else if (running)
+        {
+            anim.Play("run");
+        }
+    }
+
+    bool IsGrounded()
+    {
+        return Physics.Raycast(transform.position, Vector3.down, feetDistance + 0.025f);
     }
 }

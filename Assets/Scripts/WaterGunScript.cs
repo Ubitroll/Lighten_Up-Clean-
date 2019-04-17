@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class WaterGunScript : MonoBehaviour
 {
 	public int waterAmmoClip = 10; // how much water one clip stores
-	public int waterAmmoAll = 20; // how much all water there is
+	public int waterAmmoReserve = 30; // how much all water there is
 	public float waterAmount = 5.0f; // how much water there is in one 'shot' that can be applied on ONE fired objects
 	public float waterRange = 20.0f; // how far the water can reach 
 
@@ -27,7 +27,7 @@ public class WaterGunScript : MonoBehaviour
 	void Reload()
 	{
 		// if there actually is need to reload
-		if (10 - waterAmmoClip == 0 || waterAmmoAll == 0)
+		if (10 - waterAmmoClip == 0 || waterAmmoReserve == 0)
 			return;
 
 		// reloads only once and not every frame that captured the user pressing R key
@@ -37,15 +37,15 @@ public class WaterGunScript : MonoBehaviour
 		int ammoToFill = 10 - waterAmmoClip;
 
         // checking if there is enough ammo in reserve to reload
-        if(waterAmmoAll - ammoToFill > 0)
+        if(waterAmmoReserve - ammoToFill > 0)
         {
             waterAmmoClip += ammoToFill;
-            waterAmmoAll -= ammoToFill;
+            waterAmmoReserve -= ammoToFill;
         }
         else
         {
-            waterAmmoClip += waterAmmoAll;
-            waterAmmoAll = 0;
+            waterAmmoClip += waterAmmoReserve;
+            waterAmmoReserve = 0;
         }
 
 		isReloading = false;
@@ -109,7 +109,7 @@ public class WaterGunScript : MonoBehaviour
 				Reload ();
 
 			// displaying UI text with ammunition
-			ammoText.text = "Ammo " + waterAmmoClip + " / " + waterAmmoAll;
+			ammoText.text = "Ammo " + waterAmmoClip + " / " + waterAmmoReserve;
 		} 
 		else 
 		{

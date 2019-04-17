@@ -66,7 +66,7 @@ public class FireObjectScript : MonoBehaviour
         PlayerInput candleInput = GameObject.FindGameObjectWithTag("Candle").GetComponent<PlayerInput>();
 
         // returns true while the button is held down
-        if (Input.GetButtonDown("C2B"))
+        if (Input.GetButton("C2B"))
         {
             // when the player is pressing the button he cannot move and the timeToFireBonus is doubled
             timeToFireBoost = 2.0f;

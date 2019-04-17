@@ -22,7 +22,11 @@ public class SetEverythingOnFire : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(setOnFire)
+        if (Input.GetButton("C3B"))
+        {
+            setOnFire = true;
+        }
+        if (setOnFire)
         {
             if (!(setOnFireOnce))
                 SetEverythingToFire();

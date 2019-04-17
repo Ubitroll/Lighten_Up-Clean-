@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Prototype 4.unity
     guid: 461eb566dffa7724789317d933d4f87c
+  - enabled: 1
+    path: Assets/Scenes/WinScreenCandle.unity
+    guid: 1394e4225f1d82849be8f56fa41ef345
+  - enabled: 1
+    path: Assets/Scenes/WinScreenHuman.unity
+    guid: 151a87f908eba154f8f7b9bf9e2b66c2
   m_configObjects: {}
