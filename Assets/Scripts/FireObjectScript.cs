@@ -72,12 +72,17 @@ public class FireObjectScript : MonoBehaviour
             timeToFireBoost = 2.0f;
 
             candleInput.runSpeed = 0;
+            candleInput.firing = true;
 		} 
         else 
         {
             if (candleInput.runSpeed == 0)
                 candleInput.runSpeed = 15;
-	    }
+
+            if (candleInput.firing)
+                candleInput.firing = false;
+
+        }
 
 		// checking if the timer should be reset
 		if (!(resetFireTime))

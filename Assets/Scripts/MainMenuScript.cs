@@ -9,6 +9,7 @@ public class MainMenuScript : MonoBehaviour
 {
     public string sceneName;
     public string newSceneName;
+    public bool switchPlayers = false;
 
     // Variables for scene MainMenu
     public GameObject startButton;
@@ -368,7 +369,15 @@ public class MainMenuScript : MonoBehaviour
                     error.text = "Both players need to choose different characters.";
                 }
                 else
+                {
+                    // If the first controller is placed on human
+                    if (controller1Rect.position.x > controllerStartPosX)
+                        switchPlayers = false;
+                    else
+                        switchPlayers = true;
+
                     SceneManager.LoadScene("Prototype 4");
+                }
             }
 
             if(Input.GetButton(bButton))

@@ -14,6 +14,7 @@ public class PlayerInput : MonoBehaviour
     public bool walking = false;
     public bool standing = false;
     public bool running = false;
+    public bool firing = false;
     // Strings
     // Set to public so they can be assigned in the editor to the correct input
     public string moveX = "C1moveX";
@@ -159,7 +160,11 @@ public class PlayerInput : MonoBehaviour
         }
 
         // play the approporiate animation
-        if (walking)
+        if(this.tag == "Candle" && firing)
+        {
+            anim.Play("fire");
+        }
+        else if (walking)
         {
             anim.Play("walk");
         }
