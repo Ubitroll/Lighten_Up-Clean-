@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3860222, g: 0.3989463, b: 0.38599524, a: 1}
+  m_IndirectSpecularColor: {r: 0.38602206, g: 0.39894623, b: 0.3859951, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1091,7 +1091,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &35781778
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5476,6 +5476,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: fb7e6f3428e68ef439ad98528d2b2b8c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0af66ba0ac7395248b583d0df110e86e, type: 3}
+--- !u!4 &193257731 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 3dd8ef057be616643a2ad96c239a2c3f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1487074272}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &194007486 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 70cfe3704cd839048a9e7ac9fc8c0d9c,
@@ -9168,10 +9174,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37135d08756d42c41bb63803f4be03b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerRadius: 23
+  triggerRadius: 17
   holdTime: 30
   taskPrompt: wash yourself
-  lookTarget: {fileID: 0}
+  lookTarget: {fileID: 559117794}
+  lookAngle: 45
   complete: 0
 --- !u!135 &329763927
 SphereCollider:
@@ -9194,7 +9201,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 329763925}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -57.4, y: 0, z: -106.85}
+  m_LocalPosition: {x: -63.5, y: 0, z: -101.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -11132,7 +11139,8 @@ MonoBehaviour:
   triggerRadius: 23
   holdTime: 15
   taskPrompt: make the bed
-  lookTarget: {fileID: 0}
+  lookTarget: {fileID: 503200371}
+  lookAngle: 30
   complete: 0
 --- !u!135 &400879121
 SphereCollider:
@@ -11155,7 +11163,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 400879119}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.49, y: 0.64, z: -107.91}
+  m_LocalPosition: {x: 6.2, y: 0.64, z: -107.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -13149,7 +13157,8 @@ MonoBehaviour:
   triggerRadius: 20
   holdTime: 10
   taskPrompt: organise your tools
-  lookTarget: {fileID: 0}
+  lookTarget: {fileID: 1064554326}
+  lookAngle: 45
   complete: 0
 --- !u!135 &488215815
 SphereCollider:
@@ -13604,6 +13613,12 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: da7d112b3d5aa31498d0194404b5810d, type: 3}
+--- !u!4 &503200371 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: bcbb8563cd326284db2d62c74c5fea4c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1481457058}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &503489052
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15428,6 +15443,12 @@ Transform:
 --- !u!1 &559117793 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 88c95fbc132083343a34dfb04de64f3a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1269004832}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &559117794 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 88c95fbc132083343a34dfb04de64f3a,
     type: 3}
   m_PrefabInstance: {fileID: 1269004832}
   m_PrefabAsset: {fileID: 0}
@@ -21860,11 +21881,23 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 6709bda202fac8d49984c4bd0dee7816, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e73b6c3fe6238e94a97e152aa01e306d, type: 3}
+--- !u!4 &809370234 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400004, guid: 7749a7ba47936a94fa9ffc93690497d4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1868300788}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &810690719 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 39f9921c0fcddcb42bdc3855acc5e2ad,
     type: 3}
   m_PrefabInstance: {fileID: 24887478}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &812035470 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400008, guid: be3aa16b213f53b49af2b8a10a642123,
+    type: 3}
+  m_PrefabInstance: {fileID: 1450712786}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &813325383
 GameObject:
@@ -26116,6 +26149,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1102915054}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &987051411 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 2993b2c811ac4b342a44b8df57290fd8,
+    type: 3}
+  m_PrefabInstance: {fileID: 972039226}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &987659536
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27729,6 +27768,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 406575388}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1064554326 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400002, guid: c81912b7b71515f4d976a68cc410b1f6,
+    type: 3}
+  m_PrefabInstance: {fileID: 669679072}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1067842451
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28520,6 +28565,12 @@ Transform:
 --- !u!1 &1106748689 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 506befb3684ff4342b3b6bf9eb55ff52,
+    type: 3}
+  m_PrefabInstance: {fileID: 986091646}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1106748690 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 506befb3684ff4342b3b6bf9eb55ff52,
     type: 3}
   m_PrefabInstance: {fileID: 986091646}
   m_PrefabAsset: {fileID: 0}
@@ -29599,7 +29650,8 @@ MonoBehaviour:
   triggerRadius: 25
   holdTime: 10
   taskPrompt: make breakfast
-  lookTarget: {fileID: 0}
+  lookTarget: {fileID: 193257731}
+  lookAngle: 25
   complete: 0
 --- !u!135 &1160529960
 SphereCollider:
@@ -32338,7 +32390,8 @@ MonoBehaviour:
   triggerRadius: 13
   holdTime: 30
   taskPrompt: wash dishes
-  lookTarget: {fileID: 0}
+  lookTarget: {fileID: 812035470}
+  lookAngle: 25
   complete: 0
 --- !u!135 &1284000826
 SphereCollider:
@@ -42784,7 +42837,8 @@ MonoBehaviour:
   triggerRadius: 30
   holdTime: 10
   taskPrompt: watch the news
-  lookTarget: {fileID: 0}
+  lookTarget: {fileID: 809370234}
+  lookAngle: 15
   complete: 0
 --- !u!135 &1782482551
 SphereCollider:
@@ -47037,7 +47091,8 @@ MonoBehaviour:
   triggerRadius: 20
   holdTime: 20
   taskPrompt: do the laundry
-  lookTarget: {fileID: 0}
+  lookTarget: {fileID: 1106748690}
+  lookAngle: 45
   complete: 0
 --- !u!135 &1974831001
 SphereCollider:
@@ -47160,7 +47215,8 @@ MonoBehaviour:
   triggerRadius: 15
   holdTime: 20
   taskPrompt: repair the car
-  lookTarget: {fileID: 0}
+  lookTarget: {fileID: 987051411}
+  lookAngle: 60
   complete: 0
 --- !u!135 &1977080950
 SphereCollider:

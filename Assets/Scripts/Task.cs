@@ -16,6 +16,7 @@ public class Task : MonoBehaviour
     public float holdTime = 10; // Time to hold down the button
     public string taskPrompt; // Text when near a task. (Press x to ...)
     public Transform lookTarget; // Optional target that requires the player to look in a specific direction to complete the task
+    public float lookAngle; // Maximum angle between where the player is looking and the target
 
     [HideInInspector]
     public bool complete = false;
@@ -73,22 +74,29 @@ public class Task : MonoBehaviour
     {
         if (other.tag == "Human")
         {
-            if (!complete && LookingAtTarget(other.transform))
+            if (!complete)
             {
-                if (Input.GetButton("C1X"))
+                if (LookingAtTarget(other.transform)) // Ensures the player is looking at the task object before allowing them to complete it
                 {
-                    Debug.Log("Completing task...");
-                    progress += Time.deltaTime;
-                    if (progress >= holdTime)
+                    if (Input.GetButton("C1X"))
                     {
-                        complete = true;
-                        AudioManager.PlaySound("TaskComplete");
+                        Debug.Log("Completing task...");
+                        progress += Time.deltaTime;
+                        if (progress >= holdTime)
+                        {
+                            complete = true;
+                            AudioManager.PlaySound("TaskComplete");
+                        }
+                        progressBar.text = "Progress: " + ((int)(progress / holdTime * 100)).ToString() + "%";
                     }
-                    progressBar.text = "Progress: " + ((int)(progress / holdTime * 100)).ToString() + "%";
+                    else
+                    {
+                        progressBar.text = "Hold X to " + (taskPrompt != "" ? taskPrompt : "do task"); // Show the task prompt on the UI, defaults to "do task" if it is empty.
+                    }
                 }
                 else
                 {
-                    progressBar.text = "Hold X to " + (taskPrompt != "" ? taskPrompt : "do task"); // Show the task prompt on the UI, defaults to "do task" if it is empty.
+                    progressBar.text = "";
                 }
             }
             else
@@ -119,19 +127,17 @@ public class Task : MonoBehaviour
         return (tasksDone / tasks.Count) * 100;
     }
 
+    // Returns true if the player is looking in the direction of the target object
     bool LookingAtTarget(Transform lookDirection)
     { 
         if (lookTarget == null)
         {
             return true;
         }
-        RaycastHit[] hits = Physics.RaycastAll(lookDirection.position, lookDirection.forward);
-        foreach (RaycastHit hit in hits)
+        //Debug.Log(Vector3.Dot(lookDirection.forward.normalized, (lookTarget.position - lookDirection.position).normalized));
+        if (Vector3.Dot(lookDirection.forward.normalized, (lookTarget.position - lookDirection.position).normalized) >= (((lookAngle / 180) - 1) * -1))
         {
-            if (hit.collider.gameObject.transform == lookTarget)
-            {
-                return true;
-            }
+            return true;
         }
         return false;
     }
