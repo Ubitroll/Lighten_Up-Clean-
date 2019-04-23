@@ -47,11 +47,11 @@ public class Task : MonoBehaviour
         }
     }
 
-    [MenuItem("GameObject/Create Task", priority = 0)]
+    //[MenuItem("GameObject/Create Task", priority = 0)]
     static Task CreateTask()
     {
         GameObject task = new GameObject("New Task");
-        Selection.activeObject = task;
+        //Selection.activeObject = task;
         return task.AddComponent<Task>();
     }
 

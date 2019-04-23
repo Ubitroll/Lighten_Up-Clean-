@@ -93,6 +93,6 @@ public class WinConditions : MonoBehaviour
         //Perform any code for when a player wins here
         gameEnded = true;
         Debug.Log(player + " wins!");
-        SceneManager.LoadScene("WinScreen" + player);
+        SceneManager.LoadScene("MainMenu");
     }
 }

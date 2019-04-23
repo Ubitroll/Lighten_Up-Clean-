@@ -24,7 +24,7 @@ public class TaskList : MonoBehaviour
     {
         closestTask = GetClosestTask();
 
-        if (Input.GetButton("C1LT") || Input.GetKey(KeyCode.L)) // Displays the tasks still to be done when held
+        if (Input.GetButton("C1LB")) // || Input.GetKey(KeyCode.L)) // Displays the tasks still to be done when held
         {
             showList = true;
             taskListUI.transform.parent.gameObject.SetActive(true);
@@ -65,7 +65,7 @@ public class TaskList : MonoBehaviour
         foreach (Task task in tasks)
         {
             float distance = Vector3.Distance(gameObject.transform.position, task.transform.position);
-            if (distance < minDistance)
+            if (distance < minDistance && !task.complete)
             {
                 minDistance = distance;
                 currentClosest = task;

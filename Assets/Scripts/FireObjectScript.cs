@@ -16,7 +16,7 @@ public class FireObjectScript : MonoBehaviour
 	private float amountFilled = 0.0f; // amount of bar to be filled (how much the candle 'fired' the object already)
 	private bool resetFireTime = false; // resets the time candle was firing the object - used when it is no longer in collision with that object
 
-	// Finds and returns the closest object that is flamable
+    // Finds and returns the closest object that is flamable
 	GameObject FindClosestFlamableObject()
 	{
 		flamableObjects = GameObject.FindGameObjectsWithTag ("Flamable");
@@ -125,7 +125,7 @@ public class FireObjectScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-		if (flamableObjects == null)
+        if (flamableObjects == null)
 			flamableObjects = GameObject.FindGameObjectsWithTag ("Flamable");
 
         fireBar.SetActive(false);

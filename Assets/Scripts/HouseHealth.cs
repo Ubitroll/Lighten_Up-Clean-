@@ -56,13 +56,13 @@ public class HouseHealth : MonoBehaviour
         // if the healthbar is less than 66% changing bar colour to orange
         if(currentHealth < health66 && currentHealth > health33)
         {
-            healthBar.transform.GetChild(0).GetChild(0).GetComponent<Image>().color = new Color32(255, 162, 0, 255);
+            healthBar.transform.GetChild(0).GetChild(0).GetComponent<Image>().color = new Color(236, 138, 57);
         }
 
         // if the total health is less than 33% changing bar colour to red
         if (currentHealth <= health33)
         {
-            healthBar.transform.GetChild(0).GetChild(0).GetComponent<Image>().color = new Color32(255, 0, 0, 255);
+            healthBar.transform.GetChild(0).GetChild(0).GetComponent<Image>().color = new Color(236, 86, 57);
         }
 
 		//Debug purposes
